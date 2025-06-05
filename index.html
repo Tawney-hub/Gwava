@@ -12,273 +12,74 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts - Futuristic and Modern -->
+  <!-- Google Fonts - Orbitron for headings, Poppins for body/nav -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Electrolize&family=Space+Mono:ital,wght@0,400;0,700;1,400;0,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
+  <!-- Vendor CSS Files - Asynchronously loaded for better performance -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Custom Futuristic CSS -->
+  <!-- Custom Modernized CSS (inline for faster First Contentful Paint) -->
   <style>
- 
+    /* Custom Color Palette & Fonts */
+    :root {
+      /* Base Colors */
+      --site-background: #F8F8F8; /* Light gray for general background */
+      --charcoal-footer: #36454F; /* Charcoal for footer background */
+      --white-smoke: #F5F5F5; /* A slightly lighter shade of white/gray */
 
-    :root {
-      --default-font: "Orbitron", sans-serif;
-      /* Futuristic geometric font */
-      --heading-font: "Electrolize", sans-serif;
-      /* Sleek and modern font for headings */
-      --nav-font: "Space Mono", monospace;
-      /* Monospaced font for a techy feel in navigation */
-    }
-  /* Base styles for the AI Portfolio Section */
-  .ai-portfolio-section {
-        padding: 80px 0; /* Standard section padding */
-        background-color: #f8f9fa; /* Light background for the section */
-      }
-    
-      /* Ensure the container has padding for spacing from screen edges */
-      .ai-container {
-        padding-left: 15px; /* Default Bootstrap container padding */
-        padding-right: 15px; /* Default Bootstrap container padding */
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 1200px; /* Example max-width for consistency */
-      }
-    
-      @media (min-width: 768px) {
-        .ai-container {
-          padding-left: 30px; /* More padding on larger screens */
-          padding-right: 30px; /* More padding on larger screens */
-        }
-      }
-    
-      .ai-section-title {
-        text-align: center;
-        padding-bottom: 30px;
-      }
-    
-      .ai-section-title h2 {
-        font-size: 38px;
-        font-weight: 700;
-        margin-bottom: 10px;
-        color: #343a40; /* Dark grey for section title */
-      }
-    
-      .ai-section-title p {
-        font-size: 18px;
-        color: #6c757d; /* Medium grey for section description */
-      }
-    
-      /* Filter Buttons */
-      .ai-portfolio-filters {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 30px 0;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px; /* Space between buttons */
-        position: relative; /* Ensure z-index works */
-        z-index: 10; /* Make sure filter buttons are clickable */
-      }
-    
-      .ai-portfolio-filters li {
-        cursor: pointer;
-        padding: 10px 25px;
-        background-color: #e9ecef; /* Light grey for inactive filters */
-        border-radius: 50px;
-        font-weight: 600;
-        color: #495057; /* Darker grey for filter text */
-        transition: all 0.3s ease-in-out;
-      }
-    
-      .ai-portfolio-filters li.ai-filter-active,
-      .ai-portfolio-filters li:hover {
-        background-color: #28a745; /* Vibrant green for active/hover */
-        color: #ffffff; /* White text for active/hover */
-      }
-    
-      /* Individual AI Project Card Container (including columns) */
-      .ai-portfolio-item {
-        margin-bottom: 30px; /* Add vertical spacing between rows of cards */
-        /* On small screens, this ensures cards don't touch top/bottom of each other */
-      }
-    
-      /* Individual AI Project Card Styling */
-      .ai-project-card {
-        min-height: 350px; /* Ensures consistent card height */
-        background-color: #ffffff; /* Pure white background for the card */
-        border-radius: 12px; /* Slightly more rounded corners */
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* Enhanced subtle shadow */
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* Centers content vertically */
-        align-items: center; /* Centers content horizontally */
-        text-align: center; /* Centers text */
-        transition: all 0.4s ease-in-out; /* Slower, smoother transition */
-        padding: 25px; /* Increased internal padding */
-        height: 100%; /* Ensure it takes full height of its column */
-      }
-    
-      .ai-project-card:hover {
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18); /* More prominent shadow on hover */
-        transform: translateY(-10px); /* Slightly more lift effect on hover */
-      }
-    
-      /* Project Title - Visible by default */
-      .ai-project-title h4 {
-        margin: 0; /* Remove default margin */
-        color: rgba(7, 33, 11, 0.95); /* Dark text color for strong contrast */
-        font-size: 1.8em; /* Larger font size for prominent titles */
-        line-height: 1.3;
-        font-weight: 700;
-      }
-    
-      /* Project Details Overlay - Appears on hover */
-      .ai-project-details-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(7, 33, 11, 0.95); /* Dark blue-grey overlay with transparency */
-        color: #ffffff; /* White text for readability on dark background */
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* Centers content vertically */
-        align-items: center; /* Centers content horizontally */
-        text-align: center; /* Centers text */
-        padding: 35px; /* Generous padding for description */
-        opacity: 0; /* Hidden by default */
-        visibility: hidden; /* Ensures it's not interactive when hidden */
-        transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out; /* Smooth reveal */
-      }
-    
-      .ai-project-card:hover .ai-project-details-overlay {
-        opacity: 1; /* Fully visible on hover */
-        visibility: visible; /* Becomes interactive */
-      }
-    
-      .ai-project-details-overlay p {
-        margin-bottom: 25px; /* Space below paragraph before links */
-        font-size: 1.15em; /* Slightly larger text for comfortable reading */
-        line-height: 1.8; /* Increased line height for better readability */
-        max-height: 70%; /* Prevents text from overflowing in smaller cards */
-        overflow-y: auto; /* Adds scroll if text is too long */
-      }
-    
-      /* "More Details" Link Button */
-      .ai-project-links .ai-details-link {
-        display: inline-flex; /* Use flexbox for icon alignment */
-        align-items: center;
-        color: #dc3545; /* **Red** for the link */
-        background-color: #ffffff; /* White background for the link button */
-        padding: 12px 25px;
-        border-radius: 30px; /* More rounded, pill-shaped button */
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 1em;
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-    
-      .ai-project-links .ai-details-link i {
-        margin-left: 10px; /* Space between text and icon */
-        font-size: 1.2em;
-      }
-    
-      .ai-project-links .ai-details-link:hover {
-        background-color: #f8f9fa; /* Very light grey on hover */
-        color: #c82333; /* Darker red on hover */
-      }
-    
-      /* Responsive adjustments for overall container and spacing */
-      @media (max-width: 767px) {
-        .ai-portfolio-item {
-          padding-left: 10px; /* Small padding on columns for mobile */
-          padding-right: 10px; /* Small padding on columns for mobile */
-        }
-      }
-    
-      @media (min-width: 768px) and (max-width: 991px) {
-        .ai-portfolio-item {
-          padding-left: 15px; /* Medium padding for tablet views */
-          padding-right: 15px; /* Medium padding for tablet views */
-        }
-      }
-    
-      @media (min-width: 992px) {
-        .ai-portfolio-item {
-          padding-left: 15px; /* Larger padding for desktop views */
-          padding-right: 15px; /* Larger padding for desktop views */
-        }
-      }
-    /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-    :root {
-      --background-color: #FFFFFF;
-      /* Pure white background */
-      --default-color: #333333;
-      /* Dark grey for general text */
-      --heading-color: #003300;
-      /* Dark Forest Green for prominent headings */
-      --accent-color: #00FF00;
-      /* Vibrant Neon Green, primary accent color */
-      --secondary-accent-color: #FF0000;
-      /* Vibrant Red, secondary accent for contrast */
-      --surface-color: #F8F8F8;
-      /* Very light grey for card backgrounds */
-      --contrast-color: #FFFFFF;
-      /* White for text on dark/accent backgrounds */
+      /* Accent Colors - Primary & Secondary */
+      --neon-green: #39FF14; /* For CTA buttons, primary highlights */
+      --neon-purple: #BF00FF; /* For hover states, secondary highlights */
+      --electric-blue: #00FFFF; /* For icons and dividers */
+      --neon-pink: #FF007F; /* Another option for icons/dividers */
+      --mint-icon: #98FB98; /* For footer icons */
+
+      /* Derived Colors based on new palette */
+      --background-color: var(--site-background);
+      --default-color: hsl(210, 20%, 20%); /* Dark blue-grey for general text on light background */
+      --heading-color: hsl(210, 25%, 15%); /* Even darker blue-grey for prominent headings */
+      --accent-color: var(--neon-green); /* Primary accent: Neon Green */
+      --secondary-accent-color: var(--neon-purple); /* Secondary accent: Neon Purple */
+      --surface-color: #FFFFFF; /* White for cards/elements on light background */
+      --contrast-color: #FFFFFF; /* White for text on dark/accent backgrounds */
+
+      /* Nav Menu Colors */
+      --nav-color: hsl(210, 10%, 40%); /* Muted grey for default navigation links */
+      --nav-hover-color: var(--neon-purple); /* Neon Purple for navigation links on hover/active */
+      --nav-mobile-background-color: hsl(210, 25%, 15%); /* Dark blue-grey for mobile navigation background */
+      --nav-dropdown-background-color: hsl(210, 25%, 15%); /* Dark blue-grey for dropdown menus */
+      --nav-dropdown-color: hsl(210, 10%, 85%); /* Light grey-blue for dropdown links */
+      --nav-dropdown-hover-color: var(--electric-blue); /* Electric Blue for dropdown links on hover */
+
+      /* Font Families (Orbitron + Poppins) */
+      --default-font: "Poppins", sans-serif;
+      --heading-font: "Orbitron", sans-serif;
+      --nav-font: "Poppins", sans-serif;
     }
 
-    /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
-    :root {
-      --nav-color: #666666;
-      /* Muted grey for default navigation links */
-      --nav-hover-color: var(--secondary-accent-color);
-      /* Red for navigation links on hover/active */
-      --nav-mobile-background-color: #003300;
-      /* Dark Green for mobile navigation background */
-      --nav-dropdown-background-color: #003300;
-      /* Dark Green for dropdown menus */
-      --nav-dropdown-color: #E0FFE0;
-      /* Light Green for dropdown links */
-      --nav-dropdown-hover-color: var(--accent-color);
-      /* Neon Green for dropdown links on hover */
-    }
-
-    /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+    /* Color Presets */
     .light-background {
-      --background-color: #F0FFF0;
-      /* Very light green for light sections */
-      --surface-color: #FFFFFF;
-      /* Pure white for surfaces within light sections */
+      --background-color: var(--site-background); /* Consistent light background */
+      --surface-color: #FFFFFF; /* Pure white for surfaces within light sections */
     }
 
     .dark-background {
-      --background-color: #003300;
-      /* Dark Forest Green for dark sections */
-      --default-color: #E0FFE0;
-      /* Light green text on dark backgrounds */
-      --heading-color: #FFFFFF;
-      /* White headings on dark backgrounds */
-      --surface-color: #004400;
-      /* Slightly lighter dark green for surfaces within dark sections */
-      --contrast-color: #FFFFFF;
-      /* White for contrast on dark backgrounds */
+      --background-color: hsl(210, 25%, 15%); /* Dark blue-grey for dark sections like header */
+      --default-color: hsl(210, 10%, 85%); /* Light grey-blue text on dark backgrounds */
+      --heading-color: #FFFFFF; /* White headings on dark backgrounds */
+      --surface-color: hsl(210, 20%, 20%); /* Slightly lighter dark blue-grey for surfaces within dark sections */
+      --contrast-color: #FFFFFF; /* White for contrast on dark backgrounds */
     }
 
     /* Smooth scroll */
     :root {
       scroll-behavior: smooth;
-      /* Enables smooth scrolling for anchor links */
     }
 
     /*--------------------------------------------------------------
@@ -289,22 +90,18 @@
       background-color: var(--background-color);
       font-family: var(--default-font);
       overflow-x: hidden;
-      /* Prevents horizontal scrolling on smaller screens */
     }
 
     a {
-      color: var(--accent-color);
+      color: var(--electric-blue); /* Default link color: Electric Blue */
       text-decoration: none;
       transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      /* Custom cubic-bezier for smooth, slightly bouncy transitions */
     }
 
     a:hover {
-      color: var(--secondary-accent-color);
-      /* Changes to red on hover */
+      color: var(--neon-purple); /* Link hover color: Neon Purple */
       text-decoration: none;
       transform: translateY(-2px);
-      /* Subtle upward lift on hover */
     }
 
     h1,
@@ -316,31 +113,25 @@
       color: var(--heading-color);
       font-family: var(--heading-font);
       text-transform: uppercase;
-      /* All headings in uppercase for a modern, bold look */
       letter-spacing: 1.5px;
-      /* Adds space between letters for better readability */
     }
 
-    /* PHP Email Form Messages
-    ------------------------------*/
+    /* PHP Email Form Messages */
     .php-email-form .error-message {
       display: none;
-      background: #E53935;
-      /* Strong red for error messages */
+      background: hsl(0, 70%, 50%); /* Red for error messages */
       color: #ffffff;
       text-align: left;
       padding: 15px;
       margin-bottom: 24px;
       font-weight: 600;
       border-radius: 8px;
-      /* Rounded corners for message boxes */
     }
 
     .php-email-form .sent-message {
       display: none;
       color: #ffffff;
-      background: #388E3C;
-      /* Dark green for success messages */
+      background: hsl(120, 60%, 40%); /* Green for success messages */
       text-align: center;
       padding: 15px;
       margin-bottom: 24px;
@@ -367,7 +158,6 @@
       border: 3px solid var(--accent-color);
       border-top-color: var(--surface-color);
       animation: php-email-form-loading 1s linear infinite;
-      /* Loading spinner animation */
     }
 
     @keyframes php-email-form-loading {
@@ -385,7 +175,7 @@
     --------------------------------------------------------------*/
     .header {
       color: var(--default-color);
-      background-color: var(--background-color);
+      background-color: var(--dark-background-color); /* Kept dark for header */
       position: fixed;
       top: 0;
       left: 0;
@@ -393,102 +183,77 @@
       padding: 0 15px;
       width: 300px;
       transition: all ease-in-out 0.5s;
-      /* Slower transition for header visibility */
       overflow-y: auto;
       z-index: 997;
-      border-right: 2px solid rgba(0, 255, 0, 0.2);
-      /* Subtle green border on the right */
-      box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
-      /* Soft shadow for depth */
+      border-right: 2px solid hsla(210, 100%, 45%, 0.2); /* Subtle blue border */
+      box-shadow: 2px 0 15px hsla(210, 20%, 15%, 0.1); /* Soft shadow for depth */
     }
 
     .header .profile-img img {
       margin: 25px auto;
-      /* Increased margin for better spacing */
       display: block;
       width: 150px;
-      /* Larger profile image */
-      border: 5px solid var(--accent-color);
-      /* Vibrant green border */
+      border: 5px solid var(--electric-blue); /* Electric Blue border */
       border-radius: 50%;
-      /* Perfect circle */
-      box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.4);
-      /* Initial green glowing effect */
+      box-shadow: 0px 0px 20px hsla(180, 100%, 50%, 0.4); /* Electric Blue glowing effect */
       animation: pulse-glow 2s infinite alternate;
-      /* Pulsating glow animation */
     }
 
     @keyframes pulse-glow {
       0% {
-        box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.4);
-        /* Start with a softer glow */
+        box-shadow: 0px 0px 20px hsla(180, 100%, 50%, 0.4); /* Electric Blue */
       }
 
       100% {
-        box-shadow: 0px 0px 35px rgba(0, 255, 0, 0.7);
-        /* End with a more intense glow */
+        box-shadow: 0px 0px 35px hsla(180, 100%, 50%, 0.7); /* Electric Blue */
       }
     }
 
     .header .logo {
       line-height: 1;
       margin-bottom: 25px;
-      /* Increased margin */
     }
 
     .header .logo img {
       max-height: 40px;
-      /* Larger logo image */
       margin-right: 10px;
     }
 
     .header .logo h1 {
       font-size: 28px;
-      /* Larger font size for the name */
       margin: 0;
       font-weight: 700;
       color: var(--heading-color);
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-      /* Subtle text shadow */
+      text-shadow: 1px 1px 3px hsla(210, 20%, 15%, 0.1);
     }
 
     .header .social-links {
       margin: 10px 0 30px 0;
-      /* Adjusted margins */
       display: flex;
       justify-content: center;
-      /* Center align social icons */
     }
 
     .header .social-links a {
       font-size: 20px;
-      /* Larger social icons */
       display: inline-flex;
       align-items: center;
       justify-content: center;
       background: var(--surface-color);
-      /* Light background for icons */
-      color: var(--accent-color);
-      /* Green icon color */
+      color: var(--electric-blue); /* Electric Blue social icon */
       margin: 0 8px;
-      /* More space between icons */
       border-radius: 50%;
       text-align: center;
       width: 45px;
-      /* Larger touch target */
       height: 45px;
       transition: all 0.3s ease-in-out;
-      border: 1px solid rgba(0, 255, 0, 0.3);
-      /* Subtle green border */
+      border: 1px solid hsla(180, 100%, 50%, 0.3); /* Subtle electric blue border */
     }
 
     .header .social-links a:hover {
       color: var(--contrast-color);
-      background: var(--secondary-accent-color);
-      /* Red background on hover */
-      border-color: var(--secondary-accent-color);
+      background: var(--neon-purple); /* Neon Purple background on hover */
+      border-color: var(--neon-purple);
       transform: scale(1.1);
-      /* Slight zoom effect on hover */
     }
 
     @media (min-width: 1200px) {
@@ -496,52 +261,42 @@
       .header~main,
       .header~#footer {
         margin-left: 300px;
-        /* Content shifts to the right when header is visible */
       }
     }
 
     @media (max-width: 1199px) {
       .header {
         left: -100%;
-        /* Hides header off-screen on smaller devices */
       }
     }
 
     .header.header-show {
       left: 0;
-      /* Shows header on smaller devices */
     }
 
     .header .header-toggle {
       color: var(--contrast-color);
-      background-color: var(--accent-color);
+      background-color: var(--neon-green); /* Neon Green toggle button */
       font-size: 26px;
-      /* Larger toggle icon */
       display: flex;
       align-items: center;
       justify-content: center;
       width: 50px;
-      /* Larger toggle button */
       height: 50px;
       border-radius: 50%;
       cursor: pointer;
       position: fixed;
       top: 20px;
-      /* More spacing from top */
       right: 20px;
-      /* More spacing from right */
       z-index: 9999;
       transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      box-shadow: 0px 4px 10px rgba(0, 255, 0, 0.3);
-      /* Subtle green shadow for the toggle button */
+      box-shadow: 0px 4px 10px hsla(100, 100%, 50%, 0.3); /* Subtle neon green shadow */
     }
 
     .header .header-toggle:hover {
       color: var(--contrast-color);
-      background-color: var(--secondary-accent-color);
-      /* Red on hover */
-      box-shadow: 0px 6px 15px rgba(255, 0, 0, 0.5);
-      /* More prominent shadow on hover */
+      background-color: var(--neon-purple); /* Neon Purple on hover */
+      box-shadow: 0px 6px 15px hsla(270, 100%, 50%, 0.5); /* More prominent neon purple shadow on hover */
     }
 
     /*--------------------------------------------------------------
@@ -549,7 +304,6 @@
     --------------------------------------------------------------*/
     .mobile-nav-toggle {
       display: none;
-      /* Hidden by default, controlled by JS for mobile */
     }
 
     .navmenu {
@@ -560,7 +314,6 @@
     .navmenu ul {
       list-style: none;
       padding: 0 0 30px 0;
-      /* Increased bottom padding */
       margin: 0;
     }
 
@@ -568,24 +321,21 @@
     .navmenu a:focus {
       color: var(--nav-color);
       padding: 18px 15px;
-      /* Increased padding for larger clickable area */
       font-family: var(--nav-font);
       font-size: 17px;
-      /* Slightly larger font size */
       font-weight: 500;
       display: flex;
       align-items: center;
       white-space: nowrap;
       transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       border-left: 3px solid transparent;
-      /* Transparent border for active/hover indication */
     }
 
     .navmenu a .navicon,
     .navmenu a:focus .navicon {
       font-size: 22px;
-      /* Larger navigation icons */
       margin-right: 12px;
+      color: var(--electric-blue); /* Electric Blue nav icon */
     }
 
     .navmenu a .toggle-dropdown,
@@ -594,7 +344,6 @@
       line-height: 0;
       margin-left: auto;
       width: 35px;
-      /* Larger dropdown toggle icon */
       height: 35px;
       display: flex;
       align-items: center;
@@ -602,37 +351,34 @@
       border-radius: 50%;
       transition: 0.3s;
       flex-shrink: 0;
-      background-color: rgba(0, 255, 0, 0.1);
-      /* Subtle green background */
-      color: var(--accent-color);
+      background-color: hsla(180, 100%, 50%, 0.1); /* Subtle electric blue background */
+      color: var(--electric-blue);
     }
 
     .navmenu a .toggle-dropdown:hover,
     .navmenu a:focus .toggle-dropdown:hover {
-      background-color: var(--accent-color);
+      background-color: var(--electric-blue);
       color: var(--contrast-color);
     }
 
     .navmenu a:hover,
     .navmenu .active,
     .navmenu .active:focus {
-      color: var(--nav-hover-color);
-      border-left-color: var(--accent-color);
-      /* Green border on active/hover */
+      color: var(--nav-hover-color); /* Neon Purple nav hover color */
+      border-left-color: var(--electric-blue); /* Electric Blue border on active/hover */
     }
 
     .navmenu a:hover .navicon,
     .navmenu .active .navicon,
     .navmenu .active:focus .navicon {
-      color: var(--accent-color);
+      color: var(--electric-blue);
     }
 
     .navmenu .active .toggle-dropdown,
     .navmenu .active:focus .toggle-dropdown {
-      background-color: var(--accent-color);
+      background-color: var(--electric-blue);
       color: var(--contrast-color);
       transform: rotate(180deg);
-      /* Rotates dropdown arrow when active */
     }
 
     .navmenu .dropdown {
@@ -643,46 +389,35 @@
     .navmenu .dropdown a:focus {
       color: var(--nav-dropdown-color);
       padding-left: 35px;
-      /* Indents dropdown items */
     }
 
     .navmenu .dropdown a:hover,
     .navmenu .dropdown .active,
     .navmenu .dropdown .active:focus {
       color: var(--nav-dropdown-hover-color);
-      background-color: rgba(0, 255, 0, 0.05);
-      /* Subtle background on hover */
+      background-color: hsla(180, 100%, 50%, 0.05); /* Subtle electric blue background on hover */
     }
 
     .navmenu .dropdown ul {
       position: static;
-      /* Allows dropdown to flow naturally in the layout */
       display: none;
       z-index: 99;
       padding: 8px 15px;
-      /* Increased padding */
       margin: 5px 15px;
-      /* Increased margin */
       background-color: var(--nav-dropdown-background-color);
-      border: 1px solid rgba(0, 255, 0, 0.2);
-      /* Subtle green border */
-      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-      /* Deeper shadow for dropdowns */
+      border: 1px solid hsla(180, 100%, 50%, 0.2); /* Subtle electric blue border */
+      box-shadow: 0px 5px 15px hsla(210, 20%, 15%, 0.2);
       transition: all 0.5s ease-in-out;
       border-radius: 8px;
-      /* Rounded corners for dropdown boxes */
     }
 
     .navmenu .dropdown ul ul {
-      background-color: rgba(0, 51, 0, 0.8);
-      /* Slightly darker for nested dropdowns */
+      background-color: hsla(210, 25%, 15%, 0.8); /* Slightly darker for nested dropdowns */
     }
 
     .navmenu .dropdown>.dropdown-active {
       display: block;
-      /* Shows dropdown when active */
-      background-color: rgba(0, 51, 0, 0.05);
-      /* Subtle background for active dropdown parent */
+      background-color: hsla(210, 25%, 15%, 0.05);
     }
 
     /*--------------------------------------------------------------
@@ -690,31 +425,38 @@
     --------------------------------------------------------------*/
     .footer {
       color: var(--default-color);
-      background-color: var(--background-color);
+      background-color: var(--charcoal-footer); /* Charcoal footer background */
       font-size: 15px;
-      /* Slightly larger font */
       padding: 50px 0;
-      /* More padding */
       position: relative;
-      border-top: 2px solid rgba(0, 255, 0, 0.2);
-      /* Subtle green border at the top */
-      box-shadow: 0px -2px 15px rgba(0, 0, 0, 0.05);
-      /* Soft shadow */
+      border-top: 2px solid hsla(180, 100%, 50%, 0.2); /* Subtle electric blue border at the top */
+      box-shadow: 0px -2px 15px hsla(210, 20%, 15%, 0.05);
     }
 
     .footer .copyright p {
       margin-bottom: 0;
-      color: var(--default-color);
+      color: var(--contrast-color); /* White text on charcoal */
     }
 
     .footer .credits {
       margin-top: 8px;
-      /* More spacing */
       font-size: 14px;
       text-align: center;
-      color: var(--nav-color);
-      /* Muted color for credits */
+      color: hsla(0, 0%, 100%, 0.7); /* Lighter text for credits */
     }
+    
+    .footer .social-links a { /* Specific styles for footer social links */
+      background: hsla(120, 70%, 70%, 0.1); /* Light mint transparent */
+      color: var(--mint-icon); /* Mint icon */
+      border-color: hsla(120, 70%, 70%, 0.2); /* Subtle mint border */
+    }
+
+    .footer .social-links a:hover {
+      background: var(--mint-icon); /* Mint background on hover */
+      color: var(--charcoal-footer); /* Charcoal text on mint hover */
+      border-color: var(--mint-icon);
+    }
+
 
     /*--------------------------------------------------------------
     # Preloader
@@ -724,15 +466,11 @@
       inset: 0;
       z-index: 999999;
       overflow: hidden;
-      background: var(--heading-color);
-      /* Dark green background for preloader */
+      background: var(--heading-color); /* Dark blue-grey background for preloader */
       transition: all 0.8s ease-out;
       display: flex;
-      /* Added for centering spinner */
       align-items: center;
-      /* Added for centering spinner */
       justify-content: center;
-      /* Added for centering spinner */
     }
 
     #preloader .spinner-container {
@@ -745,14 +483,11 @@
       position: absolute;
       inset: 0;
       border: 8px solid #ffffff;
-      /* White border */
-      border-color: var(--accent-color) transparent var(--secondary-accent-color) transparent;
-      /* Green and red segments */
+      border-color: var(--neon-green) transparent var(--neon-purple) transparent; /* Neon Green and Neon Purple segments */
       border-radius: 50%;
       width: 80px;
       height: 80px;
       animation: animate-preloader 1.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
-      /* More dynamic and bouncy animation */
     }
 
     #preloader .spinner-text {
@@ -764,8 +499,7 @@
       color: white;
       font-size: 1.2rem;
       font-weight: bold;
-      font-family: var(--orbitron-font);
-      /* Use Orbitron for spinner text */
+      font-family: var(--heading-font); /* Using Orbitron for spinner text */
       animation: pulse 1.5s infinite alternate;
     }
 
@@ -806,42 +540,33 @@
       visibility: hidden;
       opacity: 0;
       right: 25px;
-      /* More spacing from the right */
       bottom: -25px;
-      /* Starts off-screen */
       z-index: 99999;
-      background-color: var(--accent-color);
+      background-color: var(--neon-green); /* Neon Green scroll top */
       width: 50px;
-      /* Larger button */
       height: 50px;
       border-radius: 50%;
       transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      box-shadow: 0px 4px 12px rgba(0, 255, 0, 0.4);
-      /* Green shadow */
+      box-shadow: 0px 4px 12px hsla(100, 100%, 50%, 0.4); /* Neon Green shadow */
     }
 
     .scroll-top i {
       font-size: 26px;
-      /* Larger icon */
       color: var(--contrast-color);
       line-height: 0;
     }
 
     .scroll-top:hover {
-      background-color: var(--secondary-accent-color);
-      /* Red on hover */
+      background-color: var(--neon-purple); /* Neon Purple on hover */
       color: var(--contrast-color);
       transform: translateY(-5px);
-      /* Lift effect on hover */
-      box-shadow: 0px 6px 15px rgba(255, 0, 0, 0.5);
-      /* More prominent shadow on hover */
+      box-shadow: 0px 6px 15px hsla(270, 100%, 50%, 0.5); /* More prominent neon purple shadow on hover */
     }
 
     .scroll-top.active {
       visibility: visible;
       opacity: 1;
       bottom: 25px;
-      /* Moves into view */
     }
 
     /*--------------------------------------------------------------
@@ -850,7 +575,6 @@
     @media screen and (max-width: 768px) {
       [data-aos-delay] {
         transition-delay: 0 !important;
-        /* Disables AOS animation delays on mobile for faster loading */
       }
     }
 
@@ -861,21 +585,16 @@
       color: var(--default-color);
       background-color: var(--background-color);
       padding: 40px 0;
-      /* Increased padding */
       position: relative;
-      border-bottom: 2px solid rgba(0, 255, 0, 0.1);
-      /* Subtle green bottom border */
+      border-bottom: 2px solid hsla(180, 100%, 50%, 0.1); /* Subtle electric blue bottom border */
     }
 
     .page-title h1 {
       font-size: 32px;
-      /* Larger heading */
       font-weight: 700;
       text-align: center;
-      /* Center align title */
       color: var(--heading-color);
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
-      /* Subtle text shadow */
+      text-shadow: 1px 1px 2px hsla(210, 20%, 15%, 0.05);
     }
 
     .page-title .breadcrumbs ol {
@@ -885,24 +604,20 @@
       padding: 0;
       margin: 0;
       font-size: 15px;
-      /* Slightly larger font */
       font-weight: 500;
       justify-content: center;
-      /* Center align breadcrumbs */
       color: var(--nav-color);
     }
 
     .page-title .breadcrumbs ol li+li {
       padding-left: 12px;
-      /* More spacing */
     }
 
     .page-title .breadcrumbs ol li+li::before {
       content: "/";
       display: inline-block;
       padding-right: 12px;
-      color: rgba(0, 255, 0, 0.6);
-      /* Green slash separator */
+      color: var(--electric-blue); /* Electric Blue slash separator */
     }
 
     /*--------------------------------------------------------------
@@ -913,20 +628,17 @@
       color: var(--default-color);
       background-color: var(--background-color);
       padding: 80px 0;
-      /* More generous padding for sections */
       overflow: clip;
-      /* Prevents content from overflowing */
       position: relative;
       z-index: 1;
     }
 
     /* Alternating background colors for visual separation */
     section:nth-child(even) {
-      background-color: var(--surface-color);
-      /* Light grey for alternating sections */
+      background-color: var(--white-smoke); /* Light blue-grey for alternating sections */
     }
 
-    /* Subtle futuristic background patterns */
+    /* Subtle modern background patterns */
     section:before {
       content: "";
       position: absolute;
@@ -934,17 +646,14 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: radial-gradient(circle at top left, rgba(0, 255, 0, 0.05) 0%, transparent 20%),
-        /* Green radial gradient */
-        radial-gradient(circle at bottom right, rgba(255, 0, 0, 0.05) 0%, transparent 20%);
-      /* Red radial gradient */
+      background-image: radial-gradient(circle at top left, hsla(180, 100%, 50%, 0.05) 0%, transparent 20%),
+        /* Electric Blue radial gradient */
+        radial-gradient(circle at bottom right, hsla(300, 100%, 50%, 0.05) 0%, transparent 20%);
+      /* Neon Pink radial gradient */
       background-repeat: no-repeat;
       background-size: 40% 40%;
-      /* Size of the gradient circles */
       z-index: -1;
-      /* Behind content */
       opacity: 0.5;
-      /* Subtle opacity */
     }
 
 
@@ -953,22 +662,18 @@
     --------------------------------------------------------------*/
     .section-title {
       padding-bottom: 70px;
-      /* Increased bottom padding */
       position: relative;
       text-align: center;
-      /* Center align all section titles */
     }
 
     .section-title h2 {
       font-size: 42px;
-      /* Larger font size for main section titles */
       font-weight: 800;
       margin-bottom: 25px;
       padding-bottom: 25px;
       position: relative;
       color: var(--heading-color);
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-      /* Soft text shadow */
+      text-shadow: 2px 2px 5px hsla(210, 20%, 15%, 0.1);
     }
 
     .section-title h2:after {
@@ -976,13 +681,9 @@
       position: absolute;
       display: block;
       width: 80px;
-      /* Wider underline */
       height: 4px;
-      /* Thicker underline */
-      background: linear-gradient(to right, var(--accent-color), var(--secondary-accent-color));
-      /* Gradient underline */
+      background: linear-gradient(to right, var(--electric-blue), var(--neon-purple)); /* Gradient underline */
       left: 50%;
-      /* Center the underline */
       transform: translateX(-50%);
       bottom: 0;
       border-radius: 2px;
@@ -992,10 +693,8 @@
       margin-bottom: 0;
       color: var(--default-color);
       font-size: 18px;
-      /* Larger paragraph text */
       line-height: 1.6;
       max-width: 800px;
-      /* Constrain width for readability */
       margin-left: auto;
       margin-right: auto;
     }
@@ -1008,14 +707,11 @@
       min-height: 100vh;
       position: relative;
       padding: 100px 0;
-      /* More padding */
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      /* Ensures background elements don't cause scrollbars */
-      background-color: var(--heading-color);
-      /* Dark green background for hero */
+      background-color: var(--heading-color); /* Dark fallback background for hero */
     }
 
     .hero img {
@@ -1027,15 +723,13 @@
       object-fit: cover;
       z-index: 1;
       filter: grayscale(80%) brightness(50%);
-      /* Darken and desaturate image for atmospheric effect */
       transform: scale(1.05);
-      /* Slightly zoom in the background image */
     }
 
     .hero:before {
       content: "";
-      background: rgba(0, 51, 0, 0.8);
-      /* Darker overlay for text readability */
+      background: linear-gradient(to right, #00BFFF, #BF00FF); /* Blue to Purple Gradient */
+      opacity: 0.8; /* Adjusted opacity for gradient */
       position: absolute;
       inset: 0;
       z-index: 2;
@@ -1045,34 +739,27 @@
       position: relative;
       z-index: 3;
       text-align: center;
-      color: var(--contrast-color);
+      color: var(--contrast-color); /* White text */
     }
 
     .hero h2 {
       margin: 0;
       font-size: 72px;
-      /* Very large heading for impact */
       font-weight: 800;
-      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
-      background: linear-gradient(to right, var(--accent-color), var(--secondary-accent-color));
-      /* Gradient text fill */
+      text-shadow: 3px 3px 10px hsla(210, 20%, 15%, 0.4);
+      background: linear-gradient(to right, var(--neon-green), var(--neon-purple)); /* Gradient text fill */
       -webkit-background-clip: text;
-      /* Required for gradient text */
       -webkit-text-fill-color: transparent;
-      /* Required for gradient text */
       animation: text-glow 2s infinite alternate;
-      /* Pulsating text glow animation */
     }
 
     @keyframes text-glow {
       0% {
-        text-shadow: 0px 0px 10px rgba(0, 255, 0, 0.5), 0px 0px 20px rgba(255, 0, 0, 0.5);
-        /* Initial glow */
+        text-shadow: 0px 0px 10px hsla(100, 100%, 50%, 0.5), 0px 0px 20px hsla(270, 100%, 50%, 0.5); /* Neon Green & Neon Purple */
       }
 
       100% {
-        text-shadow: 0px 0px 15px rgba(0, 255, 0, 0.8), 0px 0px 30px rgba(255, 0, 0, 0.8);
-        /* More intense glow */
+        text-shadow: 0px 0px 15px hsla(100, 100%, 50%, 0.8), 0px 0px 30px hsla(270, 100%, 50%, 0.8); /* Neon Green & Neon Purple */
       }
     }
 
@@ -1080,52 +767,65 @@
     .hero p {
       margin: 10px 0 0 0;
       font-size: 30px;
-      /* Larger subtitle */
       opacity: 0.9;
       letter-spacing: 2px;
       font-family: var(--nav-font);
-      /* Techy font for subtitle */
+      color: var(--contrast-color); /* Ensure white text */
     }
 
     .hero p span {
       letter-spacing: 2px;
-      border-bottom: 3px solid var(--secondary-accent-color);
-      /* Red underline */
+      border-bottom: 3px solid var(--electric-blue); /* Electric Blue underline */
       padding-bottom: 5px;
     }
 
     .hero .social-links {
       margin-top: 35px;
-      /* More spacing */
     }
 
     .hero .social-links a {
       font-size: 28px;
-      /* Larger social icons */
       display: inline-block;
-      color: rgba(255, 255, 255, 0.7);
-      /* Lighter icons for contrast */
+      color: hsla(0, 0%, 100%, 0.7); /* Lighter icons for contrast */
       line-height: 1;
       margin: 0 15px;
-      /* More space between icons */
       transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .hero .social-links a:hover {
-      color: var(--accent-color);
+      color: var(--electric-blue); /* Electric Blue on hover */
       transform: translateY(-5px) scale(1.2);
-      /* Lift and zoom effect on hover */
     }
+    
+    /* CTA button in Hero section (if present or added later) */
+    .hero .cta-button {
+      background-color: var(--neon-green);
+      color: #FFFFFF;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 30px;
+      display: inline-block;
+      box-shadow: 0px 4px 15px hsla(100, 100%, 50%, 0.5); /* Neon Green glow */
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .hero .cta-button:hover {
+      background-color: var(--neon-purple);
+      box-shadow: 0px 6px 20px hsla(270, 100%, 50%, 0.7); /* Neon Purple glow on hover */
+      transform: translateY(-3px);
+    }
+
 
     @media (max-width: 768px) {
       .hero h2 {
         font-size: 48px;
-        /* Adjust font size for mobile */
       }
 
       .hero p {
         font-size: 24px;
-        /* Adjust font size for mobile */
       }
     }
 
@@ -1135,16 +835,15 @@
     .about .content h2 {
       font-weight: 800;
       font-size: 28px;
-      /* Larger heading */
       color: var(--heading-color);
       margin-bottom: 20px;
     }
 
     .about .content p {
       line-height: 1.8;
-      /* Improved line spacing for readability */
       font-size: 16px;
       color: var(--default-color);
+      font-style: normal; /* Ensured no italics */
     }
 
     .about .content ul {
@@ -1155,40 +854,32 @@
 
     .about .content ul li {
       margin-bottom: 25px;
-      /* More spacing between list items */
       display: flex;
-      /* Use flexbox for icon and text alignment */
       align-items: flex-start;
-      /* Aligns icon to the top of the text */
       font-size: 17px;
       color: var(--default-color);
     }
 
     .about .content ul strong {
       margin-right: 15px;
-      /* More space between label and value */
       color: var(--heading-color);
       font-weight: 700;
       min-width: 100px;
-      /* Ensures consistent alignment for labels */
     }
 
     .about .content ul i {
       font-size: 20px;
-      /* Larger icon */
       margin-right: 10px;
-      color: var(--accent-color);
+      color: var(--electric-blue); /* Electric Blue icons */
       line-height: 0;
-      transform: rotate(45deg);
-      /* Subtle futuristic angle for icons */
+      transform: rotate(0deg);
     }
 
     /*--------------------------------------------------------------
     # Stats Section
     --------------------------------------------------------------*/
     .stats {
-      background-color: var(--heading-color);
-      /* Dark green background */
+      background-color: var(--heading-color); /* Dark blue-grey background */
       color: var(--contrast-color);
       padding: 60px 0;
     }
@@ -1197,39 +888,29 @@
       padding: 30px;
       width: 100%;
       text-align: center;
-      background-color: var(--nav-mobile-background-color);
-      /* Slightly lighter dark green for cards */
+      background-color: var(--nav-mobile-background-color); /* Slightly lighter dark blue-grey for cards */
       border-radius: 12px;
-      /* Rounded corners */
-      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
-      /* Prominent shadow */
+      box-shadow: 0px 5px 20px hsla(210, 20%, 15%, 0.3);
       transition: all 0.3s ease-in-out;
     }
 
     .stats .stats-item:hover {
       transform: translateY(-8px);
-      /* Lift effect on hover */
-      box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.5);
-      /* More intense shadow on hover */
-      background-color: rgba(0, 255, 0, 0.1);
-      /* Subtle green hover background */
+      box-shadow: 0px 8px 25px hsla(210, 20%, 15%, 0.5);
+      background-color: hsla(180, 100%, 50%, 0.1); /* Subtle electric blue hover background */
     }
 
     .stats .stats-item i {
-      color: var(--secondary-accent-color);
-      /* Red icon */
+      color: var(--neon-pink); /* Neon Pink icon */
       display: block;
       font-size: 50px;
-      /* Larger icon */
       margin-bottom: 15px;
       line-height: 1;
     }
 
     .stats .stats-item .purecounter {
-      color: var(--accent-color);
-      /* Green number */
+      color: var(--electric-blue); /* Electric Blue number */
       font-size: 52px;
-      /* Larger number */
       line-height: 1;
       display: block;
       font-weight: 800;
@@ -1238,8 +919,7 @@
     }
 
     .stats .stats-item p {
-      color: rgba(255, 255, 255, 0.8);
-      /* Slightly transparent white text */
+      color: hsla(0, 0%, 100%, 0.8); /* Slightly transparent white text */
       padding: 0;
       margin: 0;
       font-family: var(--default-font);
@@ -1257,19 +937,15 @@
       background: none;
       border-radius: 0;
       margin-bottom: 30px;
-      /* More space between skill bars */
     }
 
     .skills .progress .skill {
       color: var(--heading-color);
       padding: 0;
       margin: 0 0 8px 0;
-      /* More space */
       text-transform: uppercase;
       display: flex;
-      /* Use flexbox for alignment */
       justify-content: space-between;
-      /* Spaces out skill name and percentage */
       font-weight: 700;
       font-family: var(--heading-font);
       font-size: 17px;
@@ -1277,30 +953,22 @@
 
     .skills .progress .skill .val {
       font-style: normal;
-      color: var(--accent-color);
-      /* Green percentage value */
+      color: var(--electric-blue); /* Electric Blue percentage value */
     }
 
     .skills .progress-bar-wrap {
-      background: rgba(0, 255, 0, 0.1);
-      /* Light green track for the progress bar */
+      background: hsla(180, 100%, 50%, 0.1); /* Light electric blue track for the progress bar */
       height: 12px;
-      /* Thicker bar */
       border-radius: 6px;
-      /* Rounded corners for the bar */
       overflow: hidden;
-      box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
-      /* Inner shadow for depth */
+      box-shadow: inset 0px 1px 3px hsla(210, 20%, 15%, 0.1);
     }
 
     .skills .progress-bar {
       width: 1px;
-      /* Initial width for animation */
       height: 100%;
       transition: width 1.2s ease-in-out;
-      /* Slower and smoother width transition */
-      background: linear-gradient(to right, var(--accent-color), var(--secondary-accent-color));
-      /* Gradient fill for the bar */
+      background: linear-gradient(to right, var(--neon-green), var(--neon-purple)); /* Gradient fill for the bar */
       border-radius: 6px;
     }
 
@@ -1310,7 +978,6 @@
     .resume .resume-title {
       color: var(--heading-color);
       font-size: 30px;
-      /* Larger title */
       font-weight: 800;
       margin-top: 30px;
       margin-bottom: 25px;
@@ -1322,10 +989,10 @@
     .resume .resume-title::after {
       content: "";
       position: absolute;
+      display: block;
       width: 60px;
       height: 3px;
-      background: var(--secondary-accent-color);
-      /* Red underline */
+      background: var(--neon-purple); /* Neon Purple underline */
       left: 50%;
       transform: translateX(-50%);
       bottom: 0;
@@ -1333,52 +1000,41 @@
 
     .resume .resume-item {
       padding: 0 0 30px 40px;
-      /* More padding and indent */
       margin-top: -5px;
-      border-left: 3px solid rgba(0, 255, 0, 0.3);
-      /* Lighter green vertical line */
+      border-left: 3px solid hsla(180, 100%, 50%, 0.3); /* Lighter electric blue vertical line */
       position: relative;
     }
 
     .resume .resume-item h4 {
       line-height: 1.4;
       font-size: 22px;
-      /* Larger heading */
       font-weight: 700;
       text-transform: uppercase;
-      color: var(--accent-color);
-      /* Green heading */
+      color: var(--electric-blue); /* Electric Blue heading */
       margin-bottom: 8px;
     }
 
     .resume .resume-item h5 {
       font-size: 18px;
       padding: 8px 18px;
-      /* More padding */
       display: inline-block;
       font-weight: 600;
       margin-bottom: 12px;
-      background-color: var(--surface-color);
-      /* Light grey background for dates/roles */
+      background-color: var(--surface-color); /* White background for dates/roles */
       border-radius: 6px;
-      /* Rounded corners */
       color: var(--default-color);
     }
 
     .resume .resume-item ul {
       padding-left: 25px;
-      /* More indent */
       list-style: disc;
-      /* Use discs for list items */
       color: var(--default-color);
       font-size: 16px;
       line-height: 1.7;
-      /* Improved line spacing */
     }
 
     .resume .resume-item ul li {
       padding-bottom: 12px;
-      /* More space */
     }
 
     .resume .resume-item:last-child {
@@ -1389,31 +1045,24 @@
       content: "";
       position: absolute;
       width: 18px;
-      /* Larger circle */
       height: 18px;
       border-radius: 50%;
       left: -11px;
-      /* Adjust position to align with the line */
       top: 0;
       background: var(--background-color);
-      /* Background color to match the page */
-      border: 3px solid var(--secondary-accent-color);
-      /* Red circle border */
+      border: 3px solid var(--neon-pink); /* Neon Pink circle border */
       animation: node-pulse 2s infinite alternate;
-      /* Pulsating animation for the node */
     }
 
     @keyframes node-pulse {
       0% {
         transform: scale(0.9);
-        box-shadow: 0px 0px 5px var(--secondary-accent-color);
-        /* Softer shadow */
+        box-shadow: 0px 0px 5px var(--neon-pink);
       }
 
       100% {
         transform: scale(1.1);
-        box-shadow: 0px 0px 15px var(--secondary-accent-color);
-        /* More intense shadow */
+        box-shadow: 0px 0px 15px var(--neon-pink);
       }
     }
 
@@ -1421,14 +1070,12 @@
     # Portfolio Section
     --------------------------------------------------------------*/
     .portfolio {
-      background-color: var(--surface-color);
-      /* Light grey background for portfolio section */
+      background-color: var(--white-smoke); /* Light gray for portfolio section */
     }
 
     .portfolio .portfolio-filters {
       padding: 0;
       margin: 0 auto 30px auto;
-      /* More spacing below filters */
       list-style: none;
       text-align: center;
     }
@@ -1437,32 +1084,25 @@
       cursor: pointer;
       display: inline-block;
       padding: 10px 20px;
-      /* More padding for filter buttons */
       font-size: 16px;
-      /* Larger font */
       font-weight: 600;
       margin: 0 10px;
       line-height: 1;
       text-transform: uppercase;
       margin-bottom: 10px;
       transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      border: 2px solid rgba(0, 255, 0, 0.2);
-      /* Subtle green border */
+      border: 2px solid hsla(180, 100%, 50%, 0.2); /* Subtle electric blue border */
       border-radius: 8px;
-      /* Rounded corners */
       color: var(--default-color);
     }
 
     .portfolio .portfolio-filters li:hover,
     .portfolio .portfolio-filters li.filter-active {
       color: var(--contrast-color);
-      background-color: var(--accent-color);
-      /* Green background on active/hover */
-      border-color: var(--accent-color);
+      background-color: var(--electric-blue); /* Electric Blue background on active/hover */
+      border-color: var(--electric-blue);
       transform: translateY(-3px);
-      /* Subtle lift effect */
-      box-shadow: 0px 5px 15px rgba(0, 255, 0, 0.3);
-      /* Green shadow */
+      box-shadow: 0px 5px 15px hsla(180, 100%, 50%, 0.3); /* Electric Blue shadow */
     }
 
     .portfolio .portfolio-filters li:first-child {
@@ -1485,14 +1125,11 @@
       position: relative;
       overflow: hidden;
       border-radius: 12px;
-      /* Rounded corners for portfolio items */
-      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-      /* Soft shadow */
+      box-shadow: 0px 5px 20px hsla(210, 20%, 15%, 0.1);
     }
 
     .portfolio .portfolio-content img {
       transition: all 0.5s ease-in-out;
-      /* Slower transition for image zoom */
       display: block;
       width: 100%;
       height: auto;
@@ -1504,58 +1141,48 @@
       inset: 0;
       z-index: 3;
       transition: all ease-in-out 0.4s;
-      background: rgba(0, 0, 0, 0.8);
-      /* Darker overlay on hover */
+      background: hsla(210, 20%, 15%, 0.8); /* Darker overlay on hover */
       padding: 20px;
       display: flex;
-      /* Use flexbox for content alignment */
       flex-direction: column;
       justify-content: flex-end;
-      /* Aligns content to the bottom */
       color: #ffffff;
     }
 
     .portfolio .portfolio-content .portfolio-info h4 {
       font-size: 18px;
-      /* Larger title */
       padding: 8px 15px;
       font-weight: 600;
       color: #ffffff;
       display: inline-block;
-      background-color: var(--secondary-accent-color);
-      /* Red title background */
+      background-color: var(--neon-pink); /* Neon Pink title background */
       border-radius: 5px;
       margin-bottom: 10px;
     }
 
     .portfolio .portfolio-content .portfolio-info p {
       position: static;
-      /* Remove absolute positioning */
       text-align: left;
-      /* Align text left */
       display: block;
       font-size: 15px;
       font-weight: 400;
-      color: rgba(255, 255, 255, 0.9);
+      color: hsla(0, 0%, 100%, 0.9);
       margin-bottom: 15px;
     }
 
     .portfolio .portfolio-content .portfolio-info .preview-link,
     .portfolio .portfolio-content .portfolio-info .details-link {
       position: relative;
-      /* Change to relative for better positioning */
       font-size: 28px;
-      /* Larger icons */
       color: #fff;
       transition: 0.3s;
       line-height: 1.2;
       margin-right: 15px;
-      /* Space between icons */
     }
 
     .portfolio .portfolio-content .portfolio-info .preview-link:hover,
     .portfolio .portfolio-content .portfolio-info .details-link:hover {
-      color: var(--accent-color);
+      color: var(--electric-blue); /* Electric Blue on hover */
     }
 
     .portfolio .portfolio-content .portfolio-info .details-link {
@@ -1565,12 +1192,10 @@
 
     .portfolio .portfolio-content:hover .portfolio-info {
       opacity: 1;
-      /* Shows info on hover */
     }
 
     .portfolio .portfolio-content:hover img {
       transform: scale(1.15);
-      /* More pronounced zoom on hover */
     }
 
     /*--------------------------------------------------------------
@@ -1578,56 +1203,45 @@
     --------------------------------------------------------------*/
     .services .service-item {
       position: relative;
-      background-color: var(--surface-color);
-      /* Light grey background */
+      background-color: var(--surface-color); /* White background */
       padding: 30px;
       border-radius: 12px;
-      /* Rounded corners */
-      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.08);
-      /* Soft shadow */
+      box-shadow: 0px 5px 20px hsla(210, 20%, 15%, 0.08);
       transition: all 0.3s ease-in-out;
       display: flex;
-      /* Use flexbox for icon and text alignment */
       align-items: flex-start;
       margin-bottom: 30px;
     }
 
     .services .service-item:hover {
       transform: translateY(-8px);
-      /* Lift effect on hover */
-      box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
-      /* More intense shadow on hover */
+      box-shadow: 0px 8px 25px hsla(210, 20%, 15%, 0.15);
     }
 
     .services .service-item .icon {
-      background: var(--accent-color);
+      background: var(--electric-blue); /* Electric Blue icon background */
       display: flex;
       align-items: center;
       justify-content: center;
       width: 60px;
-      /* Larger icon container */
       height: 60px;
       border-radius: 50%;
       transition: 0.5s;
-      border: 2px solid var(--accent-color);
+      border: 2px solid var(--electric-blue);
       margin-right: 25px;
       flex-shrink: 0;
-      /* Prevents icon from shrinking */
     }
 
     .services .service-item .icon i {
       color: var(--contrast-color);
       font-size: 28px;
-      /* Larger icon */
       line-height: 0;
     }
 
     .services .service-item:hover .icon {
-      background: var(--secondary-accent-color);
-      /* Red on hover */
-      border-color: var(--secondary-accent-color);
-      transform: rotate(15deg);
-      /* Subtle rotate on hover */
+      background: var(--neon-pink); /* Neon Pink on hover */
+      border-color: var(--neon-pink);
+      transform: rotate(0deg);
     }
 
     .services .service-item:hover .icon i {
@@ -1638,7 +1252,6 @@
       font-weight: 700;
       margin-bottom: 10px;
       font-size: 20px;
-      /* Larger title */
     }
 
     .services .service-item .title a {
@@ -1647,12 +1260,11 @@
     }
 
     .services .service-item .title a:hover {
-      color: var(--accent-color);
+      color: var(--electric-blue);
     }
 
     .services .service-item .description {
       line-height: 1.7;
-      /* Improved line spacing */
       font-size: 15px;
       color: var(--default-color);
     }
@@ -1661,8 +1273,7 @@
     # Testimonials Section
     --------------------------------------------------------------*/
     .testimonials {
-      background-color: var(--heading-color);
-      /* Dark green background */
+      background-color: var(--heading-color); /* Dark blue-grey background */
       color: var(--contrast-color);
     }
 
@@ -1675,51 +1286,39 @@
       box-sizing: content-box;
       text-align: center;
       min-height: 380px;
-      /* Increased height for content */
-      background-color: var(--nav-mobile-background-color);
-      /* Slightly lighter dark green for cards */
+      background-color: var(--nav-mobile-background-color); /* Slightly lighter dark blue-grey for cards */
       padding: 40px;
       border-radius: 15px;
-      /* Rounded corners */
-      box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.4);
-      /* Prominent shadow */
+      box-shadow: 0px 8px 30px hsla(210, 20%, 15%, 0.4);
       margin-bottom: 20px;
     }
 
     .testimonials .testimonial-item .testimonial-img {
       width: 100px;
-      /* Larger image */
       border-radius: 50%;
       margin: 0 auto 20px auto;
-      border: 4px solid var(--accent-color);
-      /* Green border */
-      box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.4);
-      /* Green glow */
+      border: 4px solid var(--electric-blue); /* Electric Blue border */
+      box-shadow: 0px 0px 15px hsla(180, 100%, 50%, 0.4); /* Electric Blue glow */
     }
 
     .testimonials .testimonial-item h3 {
       font-size: 22px;
-      /* Larger name */
       font-weight: bold;
       margin: 15px 0 8px 0;
-      color: var(--accent-color);
-      /* Green name */
+      color: var(--electric-blue); /* Electric Blue name */
     }
 
     .testimonials .testimonial-item h4 {
       font-size: 16px;
-      color: rgba(255, 255, 255, 0.7);
+      color: hsla(0, 0%, 100%, 0.7);
       margin: 0;
       text-transform: capitalize;
-      /* Capitalize for a cleaner look */
     }
 
     .testimonials .testimonial-item .quote-icon-left,
     .testimonials .testimonial-item .quote-icon-right {
-      color: rgba(255, 0, 0, 0.6);
-      /* Red quotes with transparency */
+      color: hsla(270, 100%, 50%, 0.6); /* Neon Purple quotes with transparency */
       font-size: 34px;
-      /* Larger quotes */
       line-height: 0;
     }
 
@@ -1735,21 +1334,18 @@
       position: relative;
       top: 15px;
       transform: scale(-1, -1);
-      /* Flips the right quote icon */
     }
 
     .testimonials .testimonial-item p {
-      font-style: italic;
+      font-style: normal; /* Removed italics */
       margin: 0 15px 15px 15px;
       padding: 25px;
-      background-color: var(--heading-color);
-      /* Darker background for quote box */
+      background-color: var(--heading-color); /* Darker background for quote box */
       position: relative;
       margin-bottom: 40px;
       border-radius: 10px;
-      box-shadow: inset 0px 2px 10px rgba(0, 0, 0, 0.2);
-      /* Inner shadow for depth */
-      color: rgba(255, 255, 255, 0.9);
+      box-shadow: inset 0px 2px 10px hsla(210, 20%, 15%, 0.2);
+      color: hsla(0, 0%, 100%, 0.9);
       line-height: 1.8;
     }
 
@@ -1757,8 +1353,7 @@
       content: "";
       width: 0;
       height: 0;
-      border-top: 25px solid var(--heading-color);
-      /* Matches quote background */
+      border-top: 25px solid var(--heading-color); /* Matches quote background */
       border-right: 25px solid transparent;
       border-left: 25px solid transparent;
       position: absolute;
@@ -1772,45 +1367,126 @@
 
     .testimonials .swiper-pagination {
       margin-top: 50px;
-      /* More spacing */
       position: relative;
     }
 
     .testimonials .swiper-pagination .swiper-pagination-bullet {
       width: 14px;
-      /* Larger bullets */
       height: 14px;
-      background-color: var(--nav-mobile-background-color);
-      /* Dark green background */
+      background-color: var(--nav-mobile-background-color); /* Dark blue-grey background */
       opacity: 1;
-      border: 2px solid var(--accent-color);
+      border: 2px solid var(--electric-blue);
       transition: all 0.3s;
     }
 
     .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-      background-color: var(--secondary-accent-color);
-      /* Red active bullet */
-      border-color: var(--secondary-accent-color);
+      background-color: var(--neon-purple); /* Neon Purple active bullet */
+      border-color: var(--neon-purple);
       transform: scale(1.2);
-      /* Zoom effect for active bullet */
     }
+
+    /*--------------------------------------------------------------
+    # AI Content Section
+    --------------------------------------------------------------*/
+    .ai-content-section {
+        background-color: var(--white-smoke);
+        padding: 80px 0;
+        text-align: center;
+    }
+
+    .ai-content-section .section-title {
+        margin-bottom: 40px;
+    }
+
+    .ai-content-section .ai-output-box {
+        background-color: var(--surface-color);
+        border-radius: 12px;
+        box-shadow: 0 6px 15px hsla(210, 20%, 15%, 0.08);
+        padding: 30px;
+        margin-top: 30px;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--default-color);
+        font-size: 1.1em;
+        line-height: 1.6;
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ai-content-section .ai-output-box.loading::before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 40px;
+        border: 4px solid var(--electric-blue);
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+    }
+
+    .ai-content-section .ai-output-box.loading::after {
+        content: 'Generating AI insight...';
+        position: absolute;
+        top: calc(50% + 30px); /* Below the spinner */
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--electric-blue);
+        font-weight: 600;
+        z-index: 10;
+        white-space: nowrap; /* Prevent text wrapping */
+    }
+
+    .ai-content-section .ai-output-box.loading .ai-generated-text {
+        opacity: 0; /* Hide text while loading */
+    }
+
+    .ai-content-section .generate-button {
+        background-color: var(--neon-green);
+        color: #FFFFFF;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1em;
+        text-transform: uppercase;
+        margin-top: 40px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        box-shadow: 0px 4px 10px hsla(100, 100%, 50%, 0.4);
+    }
+
+    .ai-content-section .generate-button:hover {
+        background-color: var(--neon-purple);
+        box-shadow: 0px 6px 15px hsla(270, 100%, 50%, 0.6);
+        transform: translateY(-3px);
+    }
+
+    @keyframes spin {
+        0% { transform: translate(-50%, -50%) rotate(0deg); }
+        100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
 
     /*--------------------------------------------------------------
     # Contact Section
     --------------------------------------------------------------*/
     .contact {
-      background-color: var(--surface-color);
-      /* Light grey background */
+      background-color: var(--white-smoke); /* Light gray background */
     }
 
     .contact .info-wrap {
-      background-color: var(--background-color);
-      /* White background for info box */
-      box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
-      /* Soft shadow */
+      background-color: var(--surface-color); /* White background for info box */
+      box-shadow: 0px 0px 25px hsla(210, 20%, 15%, 0.1);
       padding: 40px;
       border-radius: 15px;
-      /* Rounded corners */
     }
 
     @media (max-width: 575px) {
@@ -1821,19 +1497,15 @@
 
     .contact .info-item {
       margin-bottom: 45px;
-      /* More spacing */
       display: flex;
       align-items: center;
     }
 
     .contact .info-item i {
       font-size: 24px;
-      /* Larger icon */
-      color: var(--accent-color);
-      background: rgba(0, 255, 0, 0.1);
-      /* Subtle green background */
+      color: var(--electric-blue);
+      background: hsla(180, 100%, 50%, 0.1); /* Subtle electric blue background */
       width: 50px;
-      /* Larger icon container */
       height: 50px;
       display: flex;
       justify-content: center;
@@ -1841,14 +1513,12 @@
       border-radius: 50%;
       transition: all 0.3s ease-in-out;
       margin-right: 20px;
-      box-shadow: 0px 2px 8px rgba(0, 255, 0, 0.2);
-      /* Subtle green shadow */
+      box-shadow: 0px 2px 8px hsla(180, 100%, 50%, 0.2); /* Subtle electric blue shadow */
     }
 
     .contact .info-item h3 {
       padding: 0;
       font-size: 20px;
-      /* Larger heading */
       font-weight: 700;
       margin-bottom: 8px;
       color: var(--heading-color);
@@ -1862,22 +1532,17 @@
     }
 
     .contact .info-item:hover i {
-      background: var(--secondary-accent-color);
-      /* Red on hover */
+      background: var(--neon-pink); /* Neon Pink on hover */
       color: var(--contrast-color);
-      box-shadow: 0px 4px 12px rgba(255, 0, 0, 0.4);
-      /* More prominent red shadow on hover */
+      box-shadow: 0px 4px 12px hsla(300, 100%, 50%, 0.4); /* More prominent neon pink shadow on hover */
     }
 
     .contact .php-email-form {
-      background-color: var(--background-color);
-      /* White background for form */
+      background-color: var(--surface-color); /* White background for form */
       height: 100%;
       padding: 40px;
-      box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
-      /* Soft shadow */
+      box-shadow: 0px 0px 25px hsla(210, 20%, 15%, 0.1);
       border-radius: 15px;
-      /* Rounded corners */
     }
 
     @media (max-width: 575px) {
@@ -1891,109 +1556,91 @@
     .contact .php-email-form textarea {
       font-size: 15px;
       padding: 12px 18px;
-      /* More padding */
       box-shadow: none;
       border-radius: 8px;
-      /* Rounded inputs */
       color: var(--default-color);
-      background-color: var(--surface-color);
-      /* Light grey input background */
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      background-color: var(--white-smoke); /* Light gray input background */
+      border: 1px solid hsla(210, 20%, 15%, 0.1);
       transition: all 0.3s ease-in-out;
     }
 
     .contact .php-email-form input[type=text]:focus,
     .contact .php-email-form input[type=email]:focus,
     .contact .php-email-form textarea:focus {
-      border-color: var(--accent-color);
-      box-shadow: 0px 0px 8px rgba(0, 255, 0, 0.3);
-      /* Green glow on focus */
+      border-color: var(--electric-blue);
+      box-shadow: 0px 0px 8px hsla(180, 100%, 50%, 0.3); /* Electric Blue glow on focus */
     }
 
     .contact .php-email-form input[type=text]::placeholder,
     .contact .php-email-form input[type=email]::placeholder,
     .contact .php-email-form textarea::placeholder {
-      color: rgba(0, 0, 0, 0.4);
+      color: hsla(210, 20%, 15%, 0.4);
     }
 
     .contact .php-email-form button[type=submit] {
       color: var(--contrast-color);
-      background: var(--accent-color);
+      background: var(--neon-green); /* Neon Green button */
       border: 0;
       padding: 12px 35px;
-      /* More padding */
       transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       border-radius: 50px;
-      /* Pill-shaped button */
       font-size: 16px;
       font-weight: 600;
-      box-shadow: 0px 4px 12px rgba(0, 255, 0, 0.3);
-      /* Green shadow */
+      box-shadow: 0px 4px 12px hsla(100, 100%, 50%, 0.3); /* Neon Green shadow */
     }
 
     .contact .php-email-form button[type=submit]:hover {
-      background: var(--secondary-accent-color);
-      /* Red on hover */
+      background: var(--neon-purple); /* Neon Purple on hover */
       transform: translateY(-3px);
-      /* Lift effect on hover */
-      box-shadow: 0px 6px 15px rgba(255, 0, 0, 0.5);
-      /* More prominent red shadow on hover */
+      box-shadow: 0px 6px 15px hsla(270, 100%, 50%, 0.5); /* More prominent neon purple shadow on hover */
     }
 
     /*--------------------------------------------------------------
     # Portfolio Details Section
     --------------------------------------------------------------*/
     .portfolio-details {
-      background-color: var(--surface-color);
+      background-color: var(--white-smoke);
     }
 
     .portfolio-details .portfolio-details-slider img {
       width: 100%;
       border-radius: 10px;
-      /* Rounded corners for images */
-      box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
-      /* Prominent shadow */
+      box-shadow: 0px 5px 25px hsla(210, 20%, 15%, 0.2);
     }
 
     .portfolio-details .portfolio-details-slider .swiper-pagination {
       margin-top: 25px;
-      /* More spacing */
       position: relative;
     }
 
     .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
       width: 14px;
       height: 14px;
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: hsla(210, 20%, 15%, 0.1);
       opacity: 1;
-      border: 2px solid var(--accent-color);
+      border: 2px solid var(--electric-blue);
       transition: all 0.3s;
     }
 
     .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-      background-color: var(--secondary-accent-color);
-      /* Red active bullet */
-      border-color: var(--secondary-accent-color);
+      background-color: var(--neon-purple); /* Neon Purple active bullet */
+      border-color: var(--neon-purple);
       transform: scale(1.2);
     }
 
     .portfolio-details .portfolio-info {
       padding: 35px;
-      /* More padding */
-      box-shadow: 0px 0 35px rgba(0, 0, 0, 0.1);
-      /* Soft shadow */
+      box-shadow: 0px 0 35px hsla(210, 20%, 15%, 0.1);
       border-radius: 12px;
-      /* Rounded corners */
-      background-color: var(--background-color);
+      background-color: var(--surface-color);
     }
 
     .portfolio-details .portfolio-info h3 {
       font-size: 26px;
-      /* Larger heading */
       font-weight: 700;
       margin-bottom: 25px;
       padding-bottom: 25px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid hsla(210, 20%, 15%, 0.1);
       color: var(--heading-color);
     }
 
@@ -2014,7 +1661,6 @@
 
     .portfolio-details .portfolio-description h2 {
       font-size: 30px;
-      /* Larger heading */
       font-weight: 700;
       margin-bottom: 25px;
       color: var(--heading-color);
@@ -2031,28 +1677,23 @@
     # Service Details Section
     --------------------------------------------------------------*/
     .service-details {
-      background-color: var(--surface-color);
+      background-color: var(--white-smoke);
     }
 
     .service-details .services-list {
       padding: 15px 35px;
-      /* More padding */
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      border: 1px solid hsla(210, 20%, 15%, 0.1);
       margin-bottom: 25px;
       border-radius: 10px;
-      /* Rounded corners */
-      background-color: var(--background-color);
-      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
-      /* Soft shadow */
+      background-color: var(--surface-color);
+      box-shadow: 0px 2px 10px hsla(210, 20%, 15%, 0.05);
     }
 
     .service-details .services-list a {
       display: block;
       line-height: 1;
       padding: 10px 0 10px 20px;
-      /* More padding and indent */
-      border-left: 3px solid rgba(0, 0, 0, 0.2);
-      /* Lighter border */
+      border-left: 3px solid hsla(210, 20%, 15%, 0.2);
       margin: 20px 0;
       color: var(--default-color);
       transition: all 0.3s;
@@ -2062,20 +1703,19 @@
     .service-details .services-list a.active {
       color: var(--heading-color);
       font-weight: 700;
-      border-color: var(--accent-color);
+      border-color: var(--electric-blue);
     }
 
     .service-details .services-list a:hover {
-      border-color: var(--secondary-accent-color);
-      /* Red on hover */
-      color: var(--accent-color);
+      border-color: var(--neon-pink); /* Neon Pink on hover */
+      color: var(--electric-blue);
     }
 
     .service-details .services-img {
       margin-bottom: 25px;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0px 5px 20px hsla(210, 20%, 15%, 0.15);
     }
 
     .service-details .services-img img {
@@ -2085,7 +1725,6 @@
 
     .service-details h3 {
       font-size: 30px;
-      /* Larger heading */
       font-weight: 700;
       color: var(--heading-color);
       margin-bottom: 15px;
@@ -2093,9 +1732,8 @@
 
     .service-details h4 {
       font-size: 24px;
-      /* Larger sub-heading */
       font-weight: 700;
-      color: var(--accent-color);
+      color: var(--electric-blue);
       margin-top: 30px;
       margin-bottom: 15px;
     }
@@ -2123,18 +1761,15 @@
 
     .service-details ul i {
       font-size: 22px;
-      /* Larger icon */
       margin-right: 10px;
-      color: var(--secondary-accent-color);
-      /* Red icon */
+      color: var(--neon-pink); /* Neon Pink icon */
     }
 
     /*--------------------------------------------------------------
     # Starter Section Section
     --------------------------------------------------------------*/
     .starter-section {
-      background-color: var(--heading-color);
-      /* Dark green background */
+      background-color: var(--heading-color); /* Dark blue-grey background */
       color: var(--contrast-color);
       padding: 80px 0;
       text-align: center;
@@ -2144,9 +1779,8 @@
 
     .starter-section h2 {
       font-size: 48px;
-      color: var(--accent-color);
-      text-shadow: 0px 0px 15px rgba(0, 255, 0, 0.7);
-      /* Green glow */
+      color: var(--electric-blue);
+      text-shadow: 0px 0px 15px hsla(180, 100%, 50%, 0.7); /* Electric Blue glow */
       margin-bottom: 20px;
     }
 
@@ -2155,10 +1789,10 @@
       max-width: 900px;
       margin: 0 auto;
       line-height: 1.8;
-      color: rgba(255, 255, 255, 0.9);
+      color: hsla(0, 0%, 100%, 0.9);
     }
 
-    /* Floating elements for futuristic feel */
+    /* Floating elements for modern feel */
     .starter-section:after {
       content: "";
       position: absolute;
@@ -2167,11 +1801,9 @@
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255, 0, 0, 0.2) 0%, transparent 70%);
-      /* Red radial gradient */
+      background: radial-gradient(circle, hsla(300, 100%, 50%, 0.2) 0%, transparent 70%); /* Neon Pink radial gradient */
       z-index: 0;
       animation: float-element 10s infinite ease-in-out alternate;
-      /* Floating animation */
     }
 
     .starter-section:before {
@@ -2182,11 +1814,9 @@
       width: 150px;
       height: 150px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 255, 0, 0.2) 0%, transparent 70%);
-      /* Green radial gradient */
+      background: radial-gradient(circle, hsla(180, 100%, 50%, 0.2) 0%, transparent 70%); /* Electric Blue radial gradient */
       z-index: 0;
       animation: float-element 12s infinite ease-in-out reverse alternate;
-      /* Floating animation in reverse */
     }
 
     @keyframes float-element {
@@ -2203,7 +1833,7 @@
       }
     }
 
-    /* Global AI-themed background patterns */
+    /* Global modern background patterns */
     body::after {
       content: '';
       position: fixed;
@@ -2211,14 +1841,10 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/black-linen.png') repeat;
-      /* Subtle texture overlay */
-      opacity: 0.05;
-      /* Very subtle */
+      background: url('https://www.transparenttextures.com/patterns/clean-textile.png') repeat; /* A lighter texture */
+      opacity: 0.03; /* Very subtle */
       z-index: -2;
-      /* Behind most content */
       pointer-events: none;
-      /* Ensures it doesn't interfere with clicks */
     }
 
     body::before {
@@ -2228,12 +1854,166 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(45deg, rgba(0, 255, 0, 0.02) 0%, transparent 20%, transparent 80%, rgba(255, 0, 0, 0.02) 100%);
-      /* Very subtle diagonal gradient */
+      background: linear-gradient(45deg, hsla(180, 100%, 50%, 0.01) 0%, transparent 20%, transparent 80%, hsla(270, 100%, 50%, 0.01) 100%); /* Very subtle diagonal gradient */
       z-index: -3;
-      /* Furthest back */
       pointer-events: none;
     }
+
+    /* AI Portfolio Section specific adjustments for modernization and color scheme */
+    .ai-portfolio-section {
+      padding: 80px 0;
+      background-color: var(--white-smoke); /* Use white smoke for consistency */
+    }
+
+    .ai-container {
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1200px;
+    }
+
+    @media (min-width: 768px) {
+      .ai-container {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+    }
+
+    .ai-section-title {
+      text-align: center;
+      padding-bottom: 30px;
+    }
+
+    .ai-section-title h2 {
+      font-size: 38px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--heading-color);
+    }
+
+    .ai-section-title p {
+      font-size: 18px;
+      color: var(--default-color);
+    }
+
+    .ai-portfolio-filters {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 30px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .ai-portfolio-filters li {
+      cursor: pointer;
+      padding: 10px 25px;
+      background-color: var(--surface-color); /* White background for inactive filters */
+      border-radius: 50px;
+      font-weight: 600;
+      color: var(--default-color);
+      transition: all 0.3s ease-in-out;
+      border: 1px solid hsla(210, 20%, 15%, 0.1);
+    }
+
+    .ai-portfolio-filters li.ai-filter-active,
+    .ai-portfolio-filters li:hover {
+      background-color: var(--electric-blue); /* Electric Blue for active/hover */
+      color: var(--contrast-color);
+      border-color: var(--electric-blue);
+      box-shadow: 0 4px 10px hsla(180, 100%, 50%, 0.2);
+    }
+
+    .ai-project-card {
+      min-height: 350px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px hsla(210, 20%, 15%, 0.08);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: all 0.4s ease-in-out;
+      padding: 25px;
+      height: 100%;
+    }
+
+    .ai-project-card:hover {
+      box-shadow: 0 12px 25px hsla(210, 20%, 15%, 0.18);
+      transform: translateY(-10px);
+    }
+
+    .ai-project-title h4 {
+      margin: 0;
+      color: var(--heading-color); /* Dark text color for strong contrast */
+      font-size: 1.8em;
+      line-height: 1.3;
+      font-weight: 700;
+    }
+
+    .ai-project-details-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: hsla(210, 25%, 15%, 0.95); /* Dark blue-grey overlay with transparency */
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 35px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+    }
+
+    .ai-project-card:hover .ai-project-details-overlay {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .ai-project-details-overlay p {
+      margin-bottom: 25px;
+      font-size: 1.15em;
+      line-height: 1.8;
+      max-height: 70%;
+      overflow-y: auto;
+      font-style: normal; /* Ensured no italics */
+    }
+
+    .ai-project-links .ai-details-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--neon-purple); /* Neon Purple for the link */
+      background-color: #ffffff;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .ai-project-links .ai-details-link i {
+      margin-left: 10px;
+      font-size: 1.2em;
+    }
+
+    .ai-project-links .ai-details-link:hover {
+      background-color: var(--white-smoke);
+      color: hsl(270, 100%, 40%); /* Darker neon purple on hover */
+    }
+
   </style>
 </head>
 
@@ -2251,7 +2031,7 @@
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="profile-img">
-      <img src="https://placehold.co/150x150/003300/00FF00/png?text=Clayton+Gwava" alt="Clayton Gwava Profile" class="img-fluid rounded-circle" loading="lazy">
+      <img src="https://placehold.co/150x150/212529/FFFFFF/png?text=Clayton+Gwava" alt="Clayton Gwava Profile" class="img-fluid rounded-circle" loading="lazy">
     </div>
 
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
@@ -2274,7 +2054,7 @@
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
         <li><a href="#ai-portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
         <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-       
+        <li><a href="#ai-content"><i class="bi bi-stars navicon"></i> AI Insights</a></li>
         <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>
@@ -2287,11 +2067,13 @@
     <section id="hero" class="hero section dark-background">
 
       <!-- Replaced with a more visually descriptive placeholder image -->
-      <img src="assets/img/background.jpg" alt="Futuristic AI Network Background" data-aos="fade-in" loading="lazy">
+      <img src="assets/img/ai_background.jpg" alt="Futuristic AI Network Background" data-aos="fade-in" loading="lazy">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <h2>Clayton Gwava</h2>
         <p>I'm a <span class="typed" data-typed-items="GenAI Engineer, LLM-Powered Systems Architect, Machine Learning Engineer, Data Scientist, AI Ethicist">GenAI Engineer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+        <!-- Added a CTA button as requested -->
+        <a href="service-details.html" class="cta-button">Another option</a>
       </div>
 
     </section><!-- /Hero Section -->
@@ -2309,11 +2091,11 @@
 
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
-            <img src="https://placehold.co/400x500/003300/00FF00/png?text=Clayton+Gwava+Portrait" class="img-fluid" alt="Clayton Gwava Portrait" loading="lazy">
+            <img src="https://placehold.co/400x500/212529/FFFFFF/png?text=Clayton+Gwava+Portrait" class="img-fluid" alt="Clayton Gwava Portrait" loading="lazy">
           </div>
           <div class="col-lg-8 content">
             <h2>GenAI Engineer | LLM-Powered Systems | Fine-Tuning, RAG, & Scalable Chatbots.</h2>
-            <p class="fst-italic py-3">
+            <p class="py-3">
               My journey bridges foundational theory, global exposure, and cutting-edge AI development. I transform complex data into actionable insights and build robust AI models that push the boundaries of what's possible.
             </p>
             <div class="row">
@@ -2476,7 +2258,7 @@
 
             <div class="resume-item pb-0">
               <h4>Clayton Gwava</h4>
-              <p><em>Passionate and driven AI Engineer with a unique blend of academic depth and practical experience, specializing in LLM-powered systems, fine-tuning, and Retrieval-Augmented Generation (RAG) to solve real-world challenges. Equipped to architect AI systems that are powerful, scalable, interpretable, and business-aligned.</em></p>
+              <p>Passionate and driven AI Engineer with a unique blend of academic depth and practical experience, specializing in LLM-powered systems, fine-tuning, and Retrieval-Augmented Generation (RAG) to solve real-world challenges. Equipped to architect AI systems that are powerful, scalable, interpretable, and business-aligned.</p>
               <ul>
                 <li>Harare, Zimbabwe / Global (Hybrid)</li>
                 <li>+263771222585</li>
@@ -2488,42 +2270,42 @@
             <div class="resume-item">
               <h4>Master of Science - MS Computer Science, Computer Software Engineering</h4>
               <h5>Oct 2024 - Jun 2027 (Expected)</h5>
-              <p><em>Maharishi International University, Fairfield, IA, USA</em></p>
+              <p>Maharishi International University, Fairfield, IA, USA</p>
               <p>Focus on advanced software engineering principles, data structures, algorithms, and modern programming paradigms.</p>
             </div><!-- End Resume Item -->
 
             <div class="resume-item">
               <h4>BACHELORS DEGREE IN ELECTRICAL ENGINEERING</h4>
               <h5>2013 - 2017</h5>
-              <p><em>University of Zimbabwe, Harare, Zimbabwe</em></p>
+              <p>University of Zimbabwe, Harare, Zimbabwe</p>
               <p>Comprehensive study of Electrical Engineering principles with a strong foundation in problem-solving and analytical thinking. Grade: A.</p>
             </div><!-- End Resume Item -->
 
             <div class="resume-item">
               <h4>Certificate, Data Analytics</h4>
               <h5>2019 - 2020</h5>
-              <p><em>Hash Analytic, India</em></p>
+              <p>Hash Analytic, India</p>
               <p>Focused on data analysis techniques, visualization, and practical application of machine learning. Grade: A.</p>
             </div><!-- End Resume Item -->
 
             <div class="resume-item">
               <h4>Project Management</h4>
               <h5>2019 - 2020</h5>
-              <p><em>University of Zimbabwe, Harare, Zimbabwe</em></p>
+              <p>University of Zimbabwe, Harare, Zimbabwe</p>
               <p>Acquired skills in project planning, execution, monitoring, control, and closing, with practical application in various projects.</p>
             </div><!-- End Resume Item -->
 
             <div class="resume-item">
               <h4>Computer/Information Technology Administration and Management</h4>
               <h5>2017 - 2018</h5>
-              <p><em>Cisco Networking Academy</em></p>
+              <p>Cisco Networking Academy</p>
               <p>Gained foundational knowledge in network administration, IT infrastructure, and system management.</p>
             </div><!-- End Resume Item -->
 
             <div class="resume-item">
               <h4>Scientific Computing and Python for Data Science Unit, Data Science</h4>
               <h5>2020</h5>
-              <p><em>WorldQuant University</em></p>
+              <p>WorldQuant University</p>
               <p>Intensive unit on scientific computing using Python, focusing on data manipulation, analysis, and visualization for data science applications.</p>
             </div><!-- End Resume Item -->
 
@@ -2548,7 +2330,7 @@
             <div class="resume-item">
               <h4>AI Engineer</h4>
               <h5>May 2021 - Nov 2024</h5>
-              <p><em>Econet Wireless Zimbabwe, Harare, Zimbabwe · Hybrid</em></p>
+              <p>Econet Wireless Zimbabwe, Harare, Zimbabwe · Hybrid</p>
               <ul>
                 <li>Contributed to the design and deployment of AI-driven solutions to improve telecom operations and customer experience.</li>
                 <li>Built and deployed a churn prediction model that improved customer retention by 15% through targeted campaigns.</li>
@@ -2565,7 +2347,7 @@
             <div class="resume-item">
               <h4>Billing/VAS Systems Engineer</h4>
               <h5>Jun 2019 - Apr 2021</h5>
-              <p><em>Econet Wireless Zimbabwe, Zimbabwe · Hybrid</em></p>
+              <p>Econet Wireless Zimbabwe, Zimbabwe · Hybrid</p>
               <ul>
                 <li>Played a key role in aligning technology capabilities with annual business strategy, supporting revenue growth, customer expansion, and service delivery across IN/Billing and VAS domains.</li>
                 <li>Led planning, design, and implementation of scalable telecom systems while collaborating with commercial, operations, and vendor teams.</li>
@@ -2577,7 +2359,7 @@
             <div class="resume-item">
               <h4>Intern</h4>
               <h5>Feb 2020 - Jun 2020</h5>
-              <p><em>Harsh Analytic, India</em></p>
+              <p>Harsh Analytic, India</p>
               <ul>
                 <li>Performed data analytics using Python, Tableau, and Google Analytics.</li>
                 <li>Solved real-time problems using machine learning models and AI.</li>
@@ -2587,7 +2369,7 @@
             <div class="resume-item">
               <h4>Graduate Systems Engineer</h4>
               <h5>Jun 2018 - May 2019</h5>
-              <p><em>Econet Wireless Zimbabwe, Zimbabwe · On-site</em></p>
+              <p>Econet Wireless Zimbabwe, Zimbabwe · On-site</p>
               <ul>
                 <li>Supported the design, implementation, and maintenance of enterprise systems across the telecom environment.</li>
                 <li>Collaborated with senior engineers to automate deployment processes using Bash and Python, reducing manual errors.</li>
@@ -2600,7 +2382,7 @@
             <div class="resume-item">
               <h4>Automation Engineer</h4>
               <h5>Jun 2017 - Apr 2018</h5>
-              <p><em>ERG Africa, Democratic Republic of the Congo</em></p>
+              <p>ERG Africa, Democratic Republic of the Congo</p>
               <ul>
                 <li>Performed PLC programming and maintenance.</li>
                 <li>Responsible for Rectifiers maintenance.</li>
@@ -2617,8 +2399,8 @@
     <section id="ai-portfolio" class="ai-portfolio-section ai-light-background">
 
       <div class="ai-container ai-section-title" data-aos="fade-up">
-        <h2 style="color: rgb(12, 52, 12); font-weight: bold;">AI Portfolio</h2>
-        <p style="color: black;">Showcasing a selection of my most impactful AI projects, demonstrating expertise across various domains and technologies, including LLM-powered systems, deep learning, and data analytics.</p>
+        <h2 style="color: var(--heading-color); font-weight: bold;">AI Portfolio</h2>
+        <p style="color: var(--default-color);">Showcasing a selection of my most impactful AI projects, demonstrating expertise across various domains and technologies, including LLM-powered systems, deep learning, and data analytics.</p>
       </div><div class="ai-container">
     
         <div class="ai-isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
@@ -2789,6 +2571,20 @@
 
     </section><!-- /Services Section -->
 
+    <!-- AI Content Section - New Feature -->
+    <section id="ai-content" class="ai-content-section section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>AI-Powered Insights</h2>
+        <p>Experience a dynamic AI-generated insight about the future of AI. Click the button to get a new perspective!</p>
+      </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="ai-output-box" id="aiOutputBox">
+          <p class="ai-generated-text">Click the button below to generate an AI insight.</p>
+        </div>
+        <button id="generateAiContentBtn" class="generate-button">Generate AI Insight</button>
+      </div>
+    </section><!-- /AI Content Section -->
+
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section light-background">
 
@@ -2835,7 +2631,7 @@
                   <span>"Clayton developed both rule-based and conversational chatbots that are multilingual (with African languages) leveraging LLMs. This helped in reducing contact center traffic to a digital Virtual Assistant powered by a genetic ecosystem."</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="https://placehold.co/90x90/003300/00FF00/png?text=Learnmore" class="testimonial-img" alt="Learnmore Masanga" loading="lazy">
+                <img src="https://placehold.co/90x90/212529/FFFFFF/png?text=Learnmore" class="testimonial-img" alt="Learnmore Masanga" loading="lazy">
                 <h3>Learnmore Masanga</h3>
                 <h4>GM AI | Mobile Telecom | AI Infusion | Digital Transformation | RPA | Digital Solutions</h4>
               </div>
@@ -2848,7 +2644,7 @@
                   <span>"He has experience with foundational models and he developed recommendations systems for hyper-personalizations of MNO customers. This helped to grow customer numbers as well as revenue and significantly reduced marketing costs."</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="https://placehold.co/90x90/003300/FF0000/png?text=Learnmore" class="testimonial-img" alt="Learnmore Masanga" loading="lazy">
+                <img src="https://placehold.co/90x90/212529/FFFFFF/png?text=Learnmore" class="testimonial-img" alt="Learnmore Masanga" loading="lazy">
                 <h3>Learnmore Masanga</h3>
                 <h4>GM AI | Mobile Telecom | AI Infusion | Digital Transformation | RPA | Digital Solutions</h4>
               </div>
@@ -2861,7 +2657,7 @@
                   <span>"Clayton's expertise in AI transformed our data analytics capabilities. The predictive models he developed provided unprecedented insights, directly impacting our bottom line."</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="https://placehold.co/90x90/003300/00FF00/png?text=Client+1" class="testimonial-img" alt="Client 1" loading="lazy">
+                <img src="https://placehold.co/90x90/212529/FFFFFF/png?text=Client+1" class="testimonial-img" alt="Client 1" loading="lazy">
                 <h3>Jane Doe</h3>
                 <h4>CEO, Tech Solutions Inc.</h4>
               </div>
@@ -2874,7 +2670,7 @@
                   <span>"The deep learning solution Clayton architected for our computer vision needs was groundbreaking. His attention to detail and innovative approach are truly exceptional."</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="https://placehold.co/90x90/003300/FF0000/png?text=Client+2" class="testimonial-img" alt="Client 2" loading="lazy">
+                <img src="https://placehold.co/90x90/212529/FFFFFF/png?text=Client+2" class="testimonial-img" alt="Client 2" loading="lazy">
                 <h3>John Smith</h3>
                 <h4>CTO, Visionary AI</h4>
               </div>
@@ -2887,7 +2683,7 @@
                   <span>"Working with Clayton on our LLM project was a game-changer. His ability to understand complex requirements and deliver a highly effective conversational AI was impressive."</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="https://placehold.co/90x90/003300/00FF00/png?text=Client+3" class="testimonial-img" alt="Client 3" loading="lazy">
+                <img src="https://placehold.co/90x90/212529/FFFFFF/png?text=Client+3" class="testimonial-img" alt="Client 3" loading="lazy">
                 <h3>Emily White</h3>
                 <h4>Head of Product, Global Communications</h4>
               </div>
@@ -2900,7 +2696,7 @@
                   <span>"Clayton's strategic insights into AI adoption were invaluable. He helped us navigate the complexities of AI ethics and ensure our solutions were both powerful and responsible."</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="https://placehold.co/90x90/003300/FF0000/png?text=Client+4" class="testimonial-img" alt="Client 4" loading="lazy">
+                <img src="https://placehold.co/90x90/212529/FFFFFF/png?text=Client+4" class="testimonial-img" alt="Client 4" loading="lazy">
                 <h3>Michael Brown</h3>
                 <h4>Director of Innovation, Enterprise Solutions</h4>
               </div>
@@ -2913,7 +2709,7 @@
                   <span>"From data preprocessing to model deployment, Clayton demonstrated unparalleled expertise. His work on optimizing our ML pipelines significantly boosted our operational efficiency."</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="https://placehold.co/90x90/003300/00FF00/png?text=Client+5" class="testimonial-img" alt="Client 5" loading="lazy">
+                <img src="https://placehold.co/90x90/212529/FFFFFF/png?text=Client+5" class="testimonial-img" alt="Client 5" loading="lazy">
                 <h3>Sarah Green</h3>
                 <h4>Lead Data Scientist, FinTech Innovations</h4>
               </div>
@@ -3308,6 +3104,60 @@
       window.addEventListener('load', navmenuScrollspy);
       document.addEventListener('scroll', navmenuScrollspy);
 
+      /**
+       * AI Content Generation Logic
+       * Fetches dynamic content from the Gemini API and displays it.
+       */
+      const generateAiContentBtn = document.getElementById('generateAiContentBtn');
+      const aiOutputBox = document.getElementById('aiOutputBox');
+      const aiGeneratedText = aiOutputBox.querySelector('.ai-generated-text');
+
+      if (generateAiContentBtn && aiOutputBox && aiGeneratedText) {
+        generateAiContentBtn.addEventListener('click', async () => {
+          aiOutputBox.classList.add('loading'); // Show loading spinner
+          aiGeneratedText.textContent = ''; // Clear previous text
+
+          try {
+            const prompt = "Generate a short, inspiring insight (under 100 words) about the future of AI and its positive impact on humanity.";
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // Canvas will automatically provide the API key
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            const response = await fetch(apiUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+              const errorData = await response.json();
+              throw new Error(`API error: ${response.status} - ${errorData.error.message || response.statusText}`);
+            }
+
+            const result = await response.json();
+
+            if (result.candidates && result.candidates.length > 0 &&
+                result.candidates[0].content && result.candidates[0].content.parts &&
+                result.candidates[0].content.parts.length > 0) {
+              const text = result.candidates[0].content.parts[0].text;
+              aiGeneratedText.textContent = text;
+            } else {
+              aiGeneratedText.textContent = "Could not generate content. Please try again.";
+              console.error("Unexpected API response structure:", result);
+            }
+          } catch (error) {
+            console.error("Error generating AI content:", error);
+            aiGeneratedText.textContent = `Failed to load AI insight: ${error.message}.`;
+          } finally {
+            aiOutputBox.classList.remove('loading'); // Hide loading spinner
+          }
+        });
+      } else {
+        console.warn("AI content generation elements not found. Feature may not work.");
+      }
     });
 </script>
   
