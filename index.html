@@ -300,11 +300,12 @@
       position: fixed;
       top: 25px;
       right: 25px;
-      z-index: 1003;
-      background: none;
+      z-index: 1005;
+      background: transparent url('assets/img/hamburger-icon.svg') no-repeat center center;
+      background-size: auto;
       border: none;
       font-size: 30px;
-      color: #ffffff; /* White icon for mobile toggle */
+      color: orange; /* White icon for mobile toggle */
       cursor: pointer;
       display: none; /* Hidden by default, shown on mobile */
       transition: all 0.3s ease;
@@ -531,11 +532,24 @@
     /* Mobile adjustments for floating social - remains on left */
     @media (max-width: 768px) {
       .floating-social-only {
-        left: 0; /* Keep on left */
-        right: auto; /* Remove right positioning */
-        border-radius: 0 15px 15px 0; /* Keep left-side border radius */
-        transform: translateY(-50%);
-        padding: 8px 0px;
+        position: relative;
+      left: 0;
+      top: 0%;
+      transform: translateY(50%);
+      z-index: 1000;
+      background: rgba(var(--heading-color-rgb), 0.1);
+      /* Transparent background using RGB var */
+      border-radius: 0 15px 15px 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      padding: 0px 0px;
+      box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.5);
+      /* Even stronger shadow */
+      align-items: center;
+      backdrop-filter: blur(8px);
+        
+
       }
 
       .floating-social-only a {
@@ -653,7 +667,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px; /* Smaller for better fit in corner */
+      font-size: 15px; /* Smaller for better fit in corner */
       color: var(--contrast-color);
       line-height: 0;
       border: none;
@@ -704,11 +718,33 @@
     }
 
     /* Adjust for mobile: Theme toggle moves slightly */
-    @media (max-width: 768px) {
-      .theme-toggle-btn {
-        right: 70px; /* Adjust to accommodate hamburger menu */
-        top: 15px; /* Slightly higher for mobile */
-      }
+ @media (max-width: 768px) {
+  .theme-toggle-btn {
+    position: fixed;
+    top: 25px;
+    right: 75px;
+    z-index: 1003;
+    background-color: var(--accent-color);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0px 4px 12px hsla(210, 100%, 45%, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: var(--contrast-color);
+    line-height: 0;
+    border: none;
+    cursor: pointer;
+  }
+
+  .theme-toggle-btn:hover {
+    background-color: orange;
+  }
+}
+
       #scroll-top {
         width: 45px;
         height: 45px;
@@ -720,7 +756,7 @@
       #scroll-top:hover {
         transform: scale(1.05);
       }
-    }
+    
 
 
     /*--------------------------------------------------------------
@@ -2071,7 +2107,7 @@
     <!-- Wrap logo in a div to easily hide/show it -->
     <div class="logo-container">
         <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-          <h1 style="color: #fff;">Portfolio<span>.</span></h1>
+         
         </a>
     </div>
 
@@ -2816,6 +2852,7 @@
       <div class="container section-title glowing-circle" data-aos="fade-up">
         <h2>Contact Me</h2>
         <p>Discuss your AI project or collaboration.</p>
+        <p>Call me on <a href="tel:+263771222585">+263771222585</a></p>
       </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
