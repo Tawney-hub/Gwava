@@ -208,14 +208,18 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: rgba(var(--background-color-rgb), 0.7); /* Semi-transparent, theme-aware */
-      backdrop-filter: blur(8px); /* Frosted glass effect */
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Subtle shadow */
-      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+      /* Adjusted background-color opacity for more transparency */
+      background-color: rgba(var(--background-color-rgb), 0.05); /* Very light background */
+      /* Increased blur for frosted glass effect */
+      backdrop-filter: blur(15px); /* Stronger blur */
+      -webkit-backdrop-filter: blur(15px); /* For Safari */
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Subtle shadow */
+      transition: background-color 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
     }
 
     body.dark-mode .header {
-        box-shadow: 0 2px 10px rgba(0,0,0,0.4); /* Darker shadow in dark mode */
+        background-color: rgba(var(--background-color-rgb), 0.1); /* Slightly more visible in dark mode */
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Darker shadow in dark mode */
     }
 
     .header .logo {
@@ -227,7 +231,7 @@
       text-decoration: none;
       position: relative;
       z-index: 1003;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Shadow for visibility */
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Stronger shadow for visibility against transparent background */
       transition: color 0.4s ease, text-shadow 0.4s ease;
     }
 
@@ -260,12 +264,12 @@
       transition: color 0.3s ease, transform 0.3s ease;
       position: relative;
       padding-bottom: 5px;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Shadow for visibility */
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Stronger shadow for visibility */
     }
 
     body.dark-mode .main-nav a {
       color: var(--default-color); /* Lighter text in dark mode */
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Slightly stronger shadow in dark mode */
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Slightly stronger shadow in dark mode */
     }
 
     .main-nav a:hover,
@@ -304,12 +308,12 @@
       cursor: pointer;
       display: none; /* Hidden by default, shown on mobile */
       transition: all 0.3s ease;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Stronger shadow for visibility */
     }
 
     body.dark-mode .mobile-nav-toggle {
         color: var(--default-color); /* Lighter icon in dark mode */
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     }
 
     .mobile-nav-toggle:hover {
@@ -322,7 +326,7 @@
       right: -100%; /* Start off-screen */
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.95); /* Always dark, highly opaque background */
+      background: rgba(0, 0, 0, 0.98); /* Near-black for maximum text contrast */
       z-index: 1002;
       transition: all 0.3s ease-in-out;
       display: flex;
@@ -331,8 +335,9 @@
       align-items: center;
       opacity: 0;
       visibility: hidden;
-      backdrop-filter: blur(20px); /* Increased blur for more prominence */
-      -webkit-backdrop-filter: blur(20px); /* For Safari support */
+      backdrop-filter: blur(25px); /* Increased blur for more prominence */
+      -webkit-backdrop-filter: blur(25px); /* For Safari support */
+      box-shadow: -5px 0 30px rgba(0,0,0,0.5); /* Shadow for pop-out effect */
     }
 
     .mobile-nav.active {
@@ -349,17 +354,17 @@
     }
 
     .mobile-nav ul li {
-      margin: 12px 0; /* Slightly increased vertical margin for better spacing with white text */
+      margin: 15px 0; /* Increased vertical margin for better spacing */
     }
 
     .mobile-nav a {
       color: #FFFFFF; /* Always white text for mobile nav links */
       font-family: var(--heading-font);
-      font-size: 20px; /* Slightly larger font for better visibility */
+      font-size: 22px; /* Slightly larger font for better visibility */
       font-weight: 700; /* Bolder font for more impact */
       text-decoration: none;
       transition: color 0.3s ease;
-      text-shadow: 0px 0px 8px rgba(255,255,255,0.2); /* Subtle glow for clarity */
+      text-shadow: 0px 0px 10px rgba(255,255,255,0.3); /* Stronger glow for clarity */
     }
 
     .mobile-nav a:hover {
@@ -380,10 +385,12 @@
         position: absolute;
         left: 25px; /* Keep logo on the left */
         top: 20px;
+        font-size: 24px; /* Slightly smaller logo on mobile */
       }
 
-      .header {
-        padding: 15px 0; /* Adjust header padding on mobile */
+      /* Hide logo when mobile nav is active */
+      .mobile-nav.active + .logo-container .logo {
+        display: none;
       }
     }
 
@@ -2061,13 +2068,17 @@
 
   <!-- Header (for desktop navigation and mobile toggle) -->
   <header id="header" class="header d-flex align-items-center">
-    <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-      <h1>Clayton<span>.</span></h1>
-    </a>
+    <!-- Wrap logo in a div to easily hide/show it -->
+    <div class="logo-container">
+        <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+          <h1 style="color: #fff;">Portfolio<span>.</span></h1>
+        </a>
+    </div>
+
 
     <!-- Main Navigation (Desktop Only) -->
     <nav id="main-nav" class="main-nav">
-      <ul>
+      <ul >
         <li><a href="#hero" class="scrollto active">Home</a></li>
         <li><a href="#skills" class="scrollto">Skills</a></li>
         <li><a href="#ai-portfolio" class="scrollto">Portfolio</a></li>
@@ -2076,12 +2087,14 @@
         <li><a href="#contact" class="scrollto">Contact</a></li>
       </ul>
     </nav>
+    
 
     <!-- Mobile Navigation Toggle (Hamburger) -->
     <button class="mobile-nav-toggle d-xl-none bi bi-list"></button>
 
     <!-- Mobile Navigation Menu (Hidden by default) -->
-    <nav class="mobile-nav d-xl-none">
+    <nav class="mobile-nav d-xl-none"
+    style="margin-top: 200px;">
       <ul>
         <li><a href="#hero" class="scrollto active">Home</a></li>
         <li><a href="#skills" class="scrollto">Skills</a></li>
@@ -2111,11 +2124,11 @@
     <a href="mailto:your.email@example.com" title="Email">
       <i class="fas fa-envelope"></i>
       <span class="tooltiptext">Email</span>
-    </a>
-    <a href="https://twitter.com/your-twitter-handle" target="_blank" title="Twitter/X">
-      <i class="fab fa-x-twitter twitter-icon"></i>
-      <span class="tooltiptext">Twitter/X</span>
-    </a>
+      <a href="https://twitter.com/ClaytonGwava" target="_blank" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+        <span class="tooltiptext">Twitter</span>
+      </a>
+    
   </div>
 
   <!-- Theme Toggle Button (Top Right) -->
@@ -2957,12 +2970,22 @@
        */
       const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
       const mobileNav = document.querySelector('.mobile-nav');
+      const logoContainer = document.querySelector('.logo-container'); // Get the logo container
 
       if (mobileNavToggle && mobileNav) {
         mobileNavToggle.addEventListener('click', (e) => {
           mobileNav.classList.toggle('active');
           mobileNavToggle.classList.toggle('bi-list');
           mobileNavToggle.classList.toggle('bi-x'); // Change icon to 'x' when active
+
+          // Toggle logo visibility
+          if (window.innerWidth <= 768) { // Only apply on mobile
+            if (mobileNav.classList.contains('active')) {
+              logoContainer.style.display = 'none'; // Hide logo
+            } else {
+              logoContainer.style.display = 'block'; // Show logo
+            }
+          }
         });
 
         // Close mobile nav when clicking on a link
@@ -2971,7 +2994,19 @@
             mobileNav.classList.remove('active');
             mobileNavToggle.classList.remove('bi-x');
             mobileNavToggle.classList.add('bi-list');
+            if (window.innerWidth <= 768) { // Only apply on mobile
+              logoContainer.style.display = 'block'; // Show logo when nav closes
+            }
           });
+        });
+
+        // Ensure logo is visible on resize if not in mobile nav view
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                logoContainer.style.display = 'block'; // Always show logo on desktop
+            } else if (!mobileNav.classList.contains('active')) {
+                logoContainer.style.display = 'block'; // Show logo on mobile if nav is closed
+            }
         });
       }
 
