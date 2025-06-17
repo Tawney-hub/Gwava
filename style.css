@@ -1,0 +1,69 @@
+.services .service-item {
+    position: relative;
+    cursor: pointer;
+    background-color: var(--background-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out;
+    padding: 40px 30px; /* Increased padding */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    min-height: 250px; /* Ensure minimum height for consistency */
+}
+
+.services .service-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.services .service-item div {
+    width: 100%; /* Take full width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Space between title and description */
+}
+
+.services .service-item h4.title {
+    font-size: 24px; /* Larger title */
+    margin-bottom: 15px;
+    color: var(--heading-color);
+    line-height: 1.4;
+    font-weight: 700;
+    padding: 0 10px; /* Add some padding to title */
+}
+
+.services .service-item p.description {
+    font-size: 16px; /* Slightly larger description text */
+    line-height: 1.7;
+    color: var(--default-color);
+    margin: 0;
+    padding: 0 15px; /* Add some padding to description */
+}
+
+/* Dark mode adjustments */
+body.dark-mode .services .service-item {
+    background-color: var(--surface-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .services .service-item {
+        padding: 30px 20px;
+        min-height: 200px;
+    }
+    
+    .services .service-item h4.title {
+        font-size: 20px;
+    }
+    
+    .services .service-item p.description {
+        font-size: 15px;
+    }
+}

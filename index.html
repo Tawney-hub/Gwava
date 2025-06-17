@@ -82,6 +82,129 @@
       color: hsl(210, 10%, 85%) !important;
     }
 
+    .services .service-item {
+      position: relative;
+      background-color: var(--background-color);
+      border-radius: 12px;
+      padding: 40px 30px;
+      height: 100%;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .services .service-item div {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .services .service-item .title {
+      margin-bottom: 30px;
+      position: relative;
+      width: 100%;
+    }
+
+    .services .service-item .title a {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0066cc; /* Blue color */
+      text-decoration: none;
+      display: block;
+      transition: color 0.3s ease;
+      padding: 0 15px;
+      margin-bottom: 15px;
+    }
+
+    .services .service-item .title a:hover {
+      color: #ff6b00; /* Orange on hover */
+    }
+
+    .services .service-item .description {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--default-color);
+      padding: 0 20px;
+      margin-top: auto;
+    }
+
+    /* Keep the modal and hover effects */
+    .services .service-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+
+
+
+    /* Modal Styling */
+.service-details-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.service-details-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.service-details-modal-content {
+    background: var(--background-color);
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    transform: scale(0.7);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.service-details-modal-overlay.active .service-details-modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: var(--heading-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #ff6b00;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
     /* Smooth scroll */
     :root {
       scroll-behavior: smooth;
@@ -1400,128 +1523,81 @@
 
     .ai-project-card {
       min-height: 350px;
-      background-color: var(--background-color); /* Use var for background */
+      background-color: var(--background-color);
       border-radius: 12px;
       box-shadow: 0 6px 15px hsla(210, 20%, 15%, 0.08);
       position: relative;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      /* Align to top */
-      align-items: center;
-      text-align: center;
-      transition: all 0.4s ease-in-out;
-      padding: 25px;
-      height: 100%;
+      perspective: 1000px; /* For 3D flip effect */
+      cursor: pointer;
     }
-
-    .ai-project-card:hover {
-      box-shadow: 0 12px 25px hsla(210, 20%, 15%, 0.18);
-      transform: translateY(-10px);
-    }
-
-    /* Dark mode for project cards */
-    body.dark-mode .ai-project-card {
-      background-color: var(--surface-color);
-      /* Darker cards */
-      box-shadow: 0 6px 15px hsla(210, 20%, 15%, 0.3);
-      /* Stronger shadows for separation */
-    }
-
-    body.dark-mode .ai-project-card:hover {
-      box-shadow: 0 12px 25px hsla(210, 20%, 15%, 0.4);
-    }
-
 
     .ai-project-card .project-icon {
       font-size: 50px;
       color: var(--accent-color);
-      margin-bottom: 20px;
-      animation: icon-pulse 1.5s infinite alternate;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -70%);
+      transition: all 0.3s ease;
     }
 
-    @keyframes icon-pulse {
-      0% {
-        transform: scale(0.95);
-        opacity: 0.8;
-      }
-
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-
-    .ai-project-title h4 {
-      margin: 0;
-      color: var(--heading-color);
-      font-size: 1.5em;
-      /* Adjusted font size */
-      line-height: 1.3;
-      font-weight: 700;
-      margin-bottom: 15px;
+    .ai-project-title {
+      position: absolute;
+      width: 100%;
+      top: 60%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
     }
 
     .ai-project-details-overlay {
       position: absolute;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: hsla(210, 25%, 15%, 0.95);
-      color: #ffffff;
+      width: 100%;
+      height: 100%;
+      background-color: var(--accent-color);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 35px;
+      padding: 20px;
       opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+      transition: all 0.3s ease;
+      transform: rotateY(180deg);
+      backface-visibility: hidden;
     }
 
-    body.dark-mode .ai-project-details-overlay {
-        background-color: hsla(210, 25%, 12%, 0.98); /* Slightly darker overlay in dark mode */
+    .ai-project-card:hover .project-icon,
+    .ai-project-card:hover .ai-project-title {
+      opacity: 0;
     }
 
     .ai-project-card:hover .ai-project-details-overlay {
       opacity: 1;
-      visibility: visible;
+      transform: rotateY(0);
     }
 
     .ai-project-details-overlay p {
-      margin-bottom: 25px;
-      font-size: 1.15em;
-      line-height: 1.8;
-      max-height: 70%;
-      overflow-y: auto;
-      font-style: normal;
-      /* Ensured no italics */
+      color: var(--contrast-color);
+      margin-bottom: 20px;
+      text-align: center;
     }
 
-    .ai-project-links .ai-details-link {
-      display: inline-flex;
-      align-items: center;
-      color: var(--secondary-accent-color);
-      background-color: #ffffff;
-      padding: 12px 25px;
-      border-radius: 30px;
-      font-weight: bold;
-      font-size: 1em;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      text-decoration: none; /* Ensure no underline */
+    .ai-project-links {
+      margin-top: 15px;
     }
 
-    body.dark-mode .ai-project-links .ai-details-link {
-        background-color: var(--background-color); /* Use dark mode background for link */
+    .ai-project-links a {
+      color: var(--contrast-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
     }
 
-    .ai-project-links .ai-details-link:hover {
-      background-color: var(--surface-color);
-      color: hsl(30, 100%, 40%);
+    .ai-project-links a:hover {
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
     }
 
     /*--------------------------------------------------------------
@@ -1608,207 +1684,20 @@
     }
 
     /*--------------------------------------------------------------
-    # Services Section (Enhanced - Icons Removed)
-    --------------------------------------------------------------*/
-    .services .row.gy-4 {
-      --bs-gutter-y: 24px;
-      /* Consistent vertical gutter */
-      --bs-gutter-x: 24px;
-      /* Consistent horizontal gutter */
-    }
-
-    .services .service-item {
-      position: relative;
-      cursor: pointer;
-      background-color: var(--background-color); /* Use var for background */
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease-in-out;
-      padding: 30px;
-      /* Increased padding inside the card */
-      height: 100%;
-      /* Ensure uniform height for grid alignment */
-      display: flex;
-      flex-direction: column;
-      /* Changed to column layout */
-      align-items: center;
-      /* Center items horizontally */
-      text-align: center;
-      /* Center text */
-    }
-
-    .services .service-item:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    /* Dark mode for service items */
-    body.dark-mode .services .service-item {
-      background-color: var(--surface-color);
-      /* Darker cards */
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      /* Stronger shadows for separation */
-    }
-
-
-    /* Icon styles removed */
-    .services .service-item .icon {
-      display: none;
-      /* Hide the icon */
-    }
-
-
-    .services .service-item div {
-      /* This targets the div containing h4 and p */
-      text-align: center;
-      /* Ensure text is centered within the card */
-      flex-grow: 1;
-      /* Allow text content to take available space */
-    }
-
-    .services .service-item h4.title {
-      font-size: 22px;
-      /* Slightly larger title */
-      margin-bottom: 15px;
-      /* Increased margin-bottom for better separation */
-      color: var(--heading-color);
-      line-height: 1.3;
-      margin-top: 0;
-      /* Ensure no unwanted margin-top */
-    }
-
-    .services .service-item p.description {
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--default-color);
-      margin-bottom: 0;
-      margin-top: 0;
-      /* Ensure no unwanted margin-top */
-    }
-
-
-    /* Service Details Modal Overlay */
-    .service-details-modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      /* Dark semi-transparent background */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10000;
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-    }
-
-    .service-details-modal-overlay.active {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .service-details-modal-content {
-      background: var(--background-color); /* Use background-color var */
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-      max-width: 800px;
-      width: 90%;
-      max-height: 90%;
-      overflow-y: auto;
-      position: relative;
-      transform: scale(0.9);
-      opacity: 0;
-      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    }
-
-    .service-details-modal-overlay.active .service-details-modal-content {
-      transform: scale(1);
-      opacity: 1;
-    }
-
-    /* Dark mode for service details modal */
-    body.dark-mode .service-details-modal-content {
-      background: var(--surface-color); /* Darker surface */
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-    }
-
-    body.dark-mode .service-details-modal-content h3 {
-      color: var(--heading-color);
-    }
-
-    body.dark-mode .service-details-modal-content p {
-      color: var(--default-color);
-    }
-
-    .service-details-modal-content .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: none;
-      border: none;
-      font-size: 30px;
-      color: var(--default-color);
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-
-    .service-details-modal-content .close-btn:hover {
-      color: var(--accent-color);
-    }
-
-    .service-details-modal-content h3 {
-      font-size: 32px;
-      color: var(--heading-color);
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .service-details-modal-content p {
-      font-size: 16px;
-      line-height: 1.8;
-      color: var(--default-color);
-      text-align: left;
-    }
-
-    /* Adjust service item link to be clickable anywhere within the card */
-    .services .service-item .stretched-link {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      /* Ensure it's above other elements but below overlay content */
-      cursor: pointer;
-    }
-
-    .services .service-item {
-      position: relative;
-      cursor: pointer;
-      /* Indicate clickability */
-    }
-
-    /*--------------------------------------------------------------
     # Testimonials Section (Polished - No Images)
     --------------------------------------------------------------*/
     .testimonials .testimonial-item {
       padding: 30px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-      background: var(--background-color); /* Use background-color var */
+      background: var(--background-color);
       border-radius: 12px;
       height: auto;
-      /* Allow height to adjust based on content */
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       margin-top: 30px;
-      /* Space from the top of its container */
       transition: all 0.3s ease;
     }
 
@@ -1843,33 +1732,6 @@
 
     .testimonials .testimonial-item .quote-icon-left,
     .testimonials .testimonial-item .quote-icon-right {
-      color: var(--secondary-accent-color);
-      /* Orange color for quotes */
-      font-size: 26px;
-      line-height: 1;
-    }
-
-    .testimonials .testimonial-item .quote-icon-left {
-      position: absolute;
-      left: -10px;
-      top: -5px;
-    }
-
-    .testimonials .testimonial-item .quote-icon-right {
-      position: absolute;
-      right: -10px;
-      bottom: -5px;
-    }
-
-    .testimonials .testimonial-img {
-      display: none;
-      /* Hide images as requested */
-    }
-
-    .testimonials .testimonial-item h3 {
-      font-size: 20px;
-      font-weight: 700;
-      margin: 10px 0 5px 0;
       color: var(--heading-color);
       text-transform: capitalize;
       /* More natural capitalization */
@@ -1905,6 +1767,51 @@
       background-color: var(--accent-color);
       /* Vibrant accent color when active */
       transform: scale(1.2);
+    }
+
+    /* Testimonials spacing adjustments */
+    .testimonials .testimonial-item {
+        margin: 20px 15px;  /* Add margin around each card */
+        padding: 35px 25px; /* Increase internal padding */
+        height: 100%;      /* Full height */
+        min-height: 280px; /* Minimum height for consistency */
+    }
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 768px) {
+        .testimonials .swiper-slide {
+            padding: 0 10px; /* Add padding to slides */
+        }
+        
+        .testimonials .testimonial-item {
+            margin: 15px 5px; /* Slightly reduced margins on mobile */
+            padding: 30px 20px; /* Slightly reduced padding on mobile */
+        }
+        
+        /* Adjust container spacing */
+        .testimonials .container {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        
+        /* Adjust swiper container */
+        .testimonials .swiper {
+            padding: 0 5px;
+            margin: 0 -5px;
+        }
+    }
+
+    /* Improve spacing between testimonial elements */
+    .testimonials .testimonial-item p {
+        margin-bottom: 25px; /* More space below the testimonial text */
+    }
+
+    .testimonials .testimonial-item h3 {
+        margin: 15px 0 10px; /* Adjust spacing around name */
+    }
+
+    .testimonials .testimonial-item h4 {
+        margin-bottom: 5px; /* Space below title */
     }
 
     /* Footer styling */
@@ -2171,7 +2078,8 @@
       <img src="assets/img/ai_background.jpg" alt="Futuristic AI Network Background" data-aos="fade-in" loading="lazy">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Clayton Gwava</h2>
+        
+        <h4 style="color: #fff; font-size: 52px; font-weight: 700; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Clayton Gwava</h4>
         <p>I'm a <span class="typed" data-typed-items="AI Engineer, LLM-Powered Systems Architect, Machine Learning Engineer, Data Scientist">AI Engineer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
       </div>
     </section><section id="about" class="about section">
@@ -2183,7 +2091,7 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
-            <img src="assets/img/potrait.jpg" class="img-fluid" alt="Clayton Gwava Portrait" loading="lazy">
+            <img src="assets/img/portrait.jpg" class="img-fluid" alt="Clayton Gwava Portrait" loading="lazy">
           </div>
           <div class="col-lg-8 content">
             <h2>AI Engineer | LLM Systems | Scalable Chatbots</h2>
@@ -2200,8 +2108,8 @@
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-calendar-event"></i> <strong>Experience:&nbsp;</strong> <span>8+ Years</span></li>
-                  <li style="margin-right: 2px;"><i class="bi bi-journal-check"></i> <strong>Degree:&nbsp;</strong> <span>M.Sc. CompSci</span></li>
+                  <li><i class="bi bi-calendar-event"></i> <strong>Experience:&nbsp;</strong> <span>7 Years</span></li>
+                  <li style="margin-right: 2px;"><i class="bi bi-journal-check"></i> <strong>Degree:&nbsp;</strong> <span>M.Sc. CompSci, <br/> M.Sc Big Data</span></li>
                   <li><i class="bi bi-envelope"></i> <strong>Email:&nbsp;</strong> <a href="mailto:csgwava@gmail.com"><span>csgwava@gmail.com</span></a></li>
                   <li><i class="bi bi-briefcase"></i> <strong>Availability:&nbsp;</strong> <span>Open to Projects</span></li>
                 </ul>
@@ -2272,15 +2180,15 @@
         <div class="row skills-content skills-animation">
           <div class="col-lg-6">
             <div class="progress">
-              <span class="skill"> <i class="fab fa-python"></i> <span>Python</span> <i class="val">100%</i></span>
+              <span class="skill"> <i class="fab fa-python"></i> <span>Python</span> <i class="val">80%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
             <div class="progress">
-              <span class="skill"> <i class="fab fa-java"></i> <span>Java</span> <i class="val">100%</i></span>
+              <span class="skill"> <i class="fab fa-java"></i> <span>Java</span> <i class="val">85%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
             <div class="progress">
@@ -2442,7 +2350,7 @@
               <h4>Clayton Gwava</h4>
               <p>AI Engineer specializing in LLM systems, fine-tuning, and RAG. I architect powerful, scalable, and business-aligned AI solutions.</p>
               <ul>
-                <li>Fairfield, Iowa, 52556</li>
+                <li>Fairfield, Iowa, 52556 USA</li>
                 <li><a href="tel:641-819-1309">641-819-1309</a></li>
                 <li><a href="mailto:csgwava@gmail.com">csgwava@gmail.com</a></li>
               </ul>
@@ -2454,26 +2362,35 @@
               <h5>Oct 2024 - Jun 2027 (Expected)</h5>
               <p>Maharishi International University, USA</p>
               <ul>
-                <li>Advanced software engineering, data structures, algorithms.</li>
+                <li>Cloud Computing and Infrastructure</li>
+                <li>Enterprise Architecture and Design</li>
+                <li>Advanced Data Structures and Algorithms</li>
+                <li>Software Architecture and Systems Design</li>
               </ul>
             </div>
+
+            <div class="resume-item">
+              <h4>M.Sc. Big Data Analytics</h4>
+              <h5>Jan 2021 - Jun 2022</h5>
+              <p>Maharishi International University, USA</p>
+              <ul>
+                <li>Advanced Analytics and Statistical Methods</li>
+                <li>Machine Learning and AI Applications</li>
+                <li>Big Data Processing and Architecture</li>
+                <li>Data Visualization and Business Intelligence</li>
+              </ul>
+            </div>
+
             <div class="resume-item">
               <h4>B.Sc. Electrical Engineering</h4>
               <h5>2013 - 2017</h5>
-              <p>University of Zimbabwe</p>
-              <ul>
-                <li>Problem-solving and analytical thinking.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Cert. Data Analytics</h4>
-              <h5>2019 - 2020</h5>
-              <p>Hash Analytic, India</p>
+              <h5>Grade A</h5>
+              <p>University of Zimbabwe, Zimbabwe</p>
               <ul>
                 <li>Data analysis, visualization, ML application.</li>
               </ul>
             </div>
-            <div class="resume-item">
+            <!-- <div class="resume-item">
               <h4>Project Management</h4>
               <h5>2019 - 2020</h5>
               <p>University of Zimbabwe</p>
@@ -2496,12 +2413,13 @@
               <ul>
                 <li>Python for data manipulation, analysis, visualization.</li>
               </ul>
-            </div>
+            </div> -->
 
             <h3 class="resume-title">Certifications</h3>
             <div class="resume-item">
               <ul>
                 <li>Google Professional ML Engineer</li>
+                <li>AWS Solutions Architect Associate</li>
                 <li>TOGAF 9 Practitioner</li>
                 <li>Prince2Agile Practitioner</li>
                 <li>Applied Data Science 1</li>
@@ -2525,7 +2443,7 @@
               </ul>
             </div>
             <div class="resume-item">
-              <h4>Billing/VAS Systems Engineer</h4>
+              <h4>Systems Engineer</h4>
               <h5>Jun 2019 - Apr 2021</h5>
               <p>Econet Wireless Zimbabwe</p>
               <ul>
@@ -2535,7 +2453,7 @@
                 <li>Spearheaded disaster recovery for IN/Billing/VAS systems.</li>
               </ul>
             </div>
-            <div class="resume-item">
+            <!-- <div class="resume-item">
               <h4>Intern</h4>
               <h5>Feb 2020 - Jun 2020</h5>
               <p>Harsh Analytic, India</p>
@@ -2543,7 +2461,7 @@
                 <li>Performed data analytics (Python, Tableau, Google Analytics).</li>
                 <li>Solved real-time problems with ML/AI.</li>
               </ul>
-            </div>
+            </div> -->
             <div class="resume-item">
               <h4>Graduate Systems Engineer</h4>
               <h5>Jun 2018 - May 2019</h5>
@@ -2554,7 +2472,7 @@
                 <li>Monitored networks, contributed to security updates.</li>
               </ul>
             </div>
-            <div class="resume-item">
+            <!-- <div class="resume-item">
               <h4>Automation Engineer</h4>
               <h5>Jun 2017 - Apr 2018</h5>
               <p>ERG Africa, DRC</p>
@@ -2562,7 +2480,7 @@
                 <li>PLC programming and maintenance.</li>
                 <li>Rectifiers maintenance.</li>
               </ul>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -2743,7 +2661,7 @@
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
                   <h3>Global Presence</h3>
-                  <p>Fairfield, Iowa, 52556</p>
+                  <p>Fairfield, Iowa, 52556 USA</p>
                 </div>
               </div>
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
@@ -3097,52 +3015,122 @@
       const serviceDetailsModal = document.getElementById('serviceDetailsModal');
       const modalServiceTitle = document.getElementById('modalServiceTitle');
       const modalServiceDetails = document.getElementById('modalServiceDetails');
-      const serviceItems = document.querySelectorAll('.services .service-item .stretched-link');
-      const closeServiceModalBtn = document.getElementById('closeServiceModalBtn'); // Get the close button
+      const serviceItems = document.querySelectorAll('.service-item');
+      const closeServiceModalBtn = document.getElementById('closeServiceModalBtn');
 
+      // Add click event to each service item
       serviceItems.forEach(item => {
-        item.addEventListener('click', function(event) {
-          event.preventDefault(); // Prevent default link behavior
-          const title = this.getAttribute('data-service-title');
-          const details = this.getAttribute('data-service-details');
-          openServiceDetailsModal(title, details);
+        item.addEventListener('click', function(e) {
+          const link = this.querySelector('.stretched-link');
+          if (link) {
+            e.preventDefault();
+            const title = link.getAttribute('data-service-title');
+            const details = link.getAttribute('data-service-details');
+            openServiceDetailsModal(title, details);
+          }
         });
       });
 
-      // Event listener for the close button
-      if (closeServiceModalBtn) {
-        closeServiceModalBtn.addEventListener('click', () => {
-          closeServiceDetailsModal();
-        });
-      }
-
+      // Open modal function
       function openServiceDetailsModal(title, details) {
-        modalServiceTitle.textContent = title;
-        modalServiceDetails.textContent = details;
-        serviceDetailsModal.classList.add('active');
-        document.body.classList.add('no-scroll'); // Disable body scroll
+        if (modalServiceTitle && modalServiceDetails) {
+          modalServiceTitle.textContent = title;
+          modalServiceDetails.textContent = details;
+          serviceDetailsModal.classList.add('active');
+          document.body.classList.add('no-scroll');
+        }
       }
 
+      // Close modal function
       function closeServiceDetailsModal() {
-        serviceDetailsModal.classList.remove('active');
-        document.body.classList.remove('no-scroll'); // Enable body scroll
+        if (serviceDetailsModal) {
+          serviceDetailsModal.classList.remove('active');
+          document.body.classList.remove('no-scroll');
+        }
       }
 
-      // Close modal when clicking outside content
-      serviceDetailsModal.addEventListener('click', function(event) {
-        if (event.target === serviceDetailsModal) {
-          closeServiceDetailsModal();
-        }
-      });
+      // Close modal event listeners
+      if (closeServiceModalBtn) {
+        closeServiceModalBtn.addEventListener('click', closeServiceDetailsModal);
+      }
 
-      // Close modal with Escape key
-      document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape' && serviceDetailsModal.classList.contains('active')) {
-          closeServiceModalBtn.click(); // Programmatically click the close button
-        }
-      });
+      if (serviceDetailsModal) {
+        // Close on overlay click
+        serviceDetailsModal.addEventListener('click', function(e) {
+          if (e.target === serviceDetailsModal) {
+            closeServiceDetailsModal();
+          }
+        });
 
+        // Close on ESC key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && serviceDetailsModal.classList.contains('active')) {
+            closeServiceDetailsModal();
+          }
+        });
+      }
 
+// Service modal functionality
+document.addEventListener('DOMContentLoaded', () => {
+  // Service Details Modal Logic
+  const serviceDetailsModal = document.getElementById('serviceDetailsModal');
+  const modalServiceTitle = document.getElementById('modalServiceTitle');
+  const modalServiceDetails = document.getElementById('modalServiceDetails');
+  const serviceItems = document.querySelectorAll('.service-item');
+  const closeServiceModalBtn = document.getElementById('closeServiceModalBtn');
+
+  // Add click event to each service item
+  serviceItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      const link = this.querySelector('.stretched-link');
+      if (link) {
+        e.preventDefault();
+        const title = link.getAttribute('data-service-title');
+        const details = link.getAttribute('data-service-details');
+        openServiceDetailsModal(title, details);
+      }
+    });
+  });
+
+  // Open modal function
+  function openServiceDetailsModal(title, details) {
+    if (modalServiceTitle && modalServiceDetails) {
+      modalServiceTitle.textContent = title;
+      modalServiceDetails.textContent = details;
+      serviceDetailsModal.classList.add('active');
+      document.body.classList.add('no-scroll');
+    }
+  }
+
+  // Close modal function
+  function closeServiceDetailsModal() {
+    if (serviceDetailsModal) {
+      serviceDetailsModal.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
+  }
+
+  // Close modal event listeners
+  if (closeServiceModalBtn) {
+    closeServiceModalBtn.addEventListener('click', closeServiceDetailsModal);
+  }
+
+  if (serviceDetailsModal) {
+    // Close on overlay click
+    serviceDetailsModal.addEventListener('click', function(e) {
+      if (e.target === serviceDetailsModal) {
+        closeServiceDetailsModal();
+      }
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && serviceDetailsModal.classList.contains('active')) {
+        closeServiceDetailsModal();
+      }
+    });
+  }
+});
       /**
        * Theme Toggle Logic
        * Allows users to switch between light and dark modes, and persists the choice.
@@ -3287,5 +3275,7 @@
     });
   </script>
 </body>
+
+</html>
 
 </html>
