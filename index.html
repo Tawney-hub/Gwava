@@ -85,18 +85,18 @@
     .services .service-item {
       position: relative;
       background-color: var(--background-color);
-      border-radius: 12px;
-      padding: 40px 30px;
-      height: 100%;
-      min-height: 320px;
+      border-radius: 10px;
+      padding: 15px 12px;
+      min-height: 180px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
       text-align: center;
       transition: all 0.3s ease;
       cursor: pointer;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      margin-bottom: 15px;
     }
 
     .services .service-item div {
@@ -104,37 +104,57 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      padding: 20px 0;
+      padding: 0;
     }
 
     .services .service-item .title {
-      margin-bottom: 30px;
+      margin: 0 0 10px 0;
       position: relative;
       width: 100%;
     }
 
     .services .service-item .title a {
-      font-size: 22px;
+      font-size: 17px;
       font-weight: 700;
-      color: #0066cc; /* Blue color */
+      color: #0066cc;
       text-decoration: none;
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8px;
+      margin-bottom: 6px;
+      height: 40px;
       transition: color 0.3s ease;
-      padding: 0 15px;
-      margin-bottom: 15px;
     }
 
     .services .service-item .title a:hover {
-      color: #ff6b00; /* Orange on hover */
+      color: #ff6b00;
+    }
+
+    .services .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
 
     .services .service-item .description {
-      font-size: 15px;
-      line-height: 1.7;
+      font-size: 12px;
+      line-height: 1.4;
       color: var(--default-color);
-      padding: 0 20px;
-      margin-top: auto;
+      padding: 0 8px;
+    }
+
+    /* Adjust service grid spacing */
+    .services .row {
+      margin-right: -10px;
+      margin-left: -10px;
+    }
+
+    .services .col-lg-4,
+    .services .col-md-6 {
+      padding-right: 10px;
+      padding-left: 10px;
     }
 
     /* Keep the modal and hover effects */
@@ -1195,32 +1215,36 @@
     .certificates-carousel .swiper-slide {
       width: 280px; /* Fixed width for each certificate item */
       margin-right: 20px; /* Space between items */
+      height: 200px; /* Fixed height for uniformity */
     }
 
     .certificate-item {
       background-color: var(--background-color); /* Use background-color var */
-      border-radius: 10px;
-      padding: 20px;
+      border-radius: 12px;
+      padding: 25px 20px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
       height: 100%; /* Ensure uniform height */
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       cursor: pointer;
       border: 1px solid rgba(0,0,0,0.05); /* Subtle border for separation */
+      position: relative;
+      overflow: hidden;
     }
 
     body.dark-mode .certificate-item {
       background-color: var(--surface-color); /* Darker surface in dark mode */
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       border-color: rgba(255,255,255,0.1); /* Lighter border in dark mode */
     }
 
     .certificate-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
       background-color: var(--accent-color);
       color: var(--contrast-color);
       border-color: var(--accent-color); /* Match border to background on hover */
@@ -1233,27 +1257,44 @@
     }
 
     .certificate-item .cert-icon {
-        font-size: 36px;
-        margin-bottom: 10px;
+        font-size: 40px;
+        margin-bottom: 15px;
         color: var(--secondary-accent-color);
         transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(255, 107, 0, 0.1);
+        margin: 0 auto 15px;
+    }
+
+    .certificate-item:hover .cert-icon {
+      color: var(--contrast-color);
+      background: rgba(255, 255, 255, 0.2);
     }
 
     .certificate-item h4 {
-      font-size: 1.2em;
-      margin-bottom: 10px;
+      font-size: 16px;
+      margin-bottom: 8px;
       color: var(--heading-color);
       transition: color 0.3s ease;
+      font-weight: 600;
+      line-height: 1.3;
+      max-width: 100%;
     }
 
     .certificate-item p {
-      font-size: 0.9em;
+      font-size: 13px;
       color: var(--default-color);
       margin-bottom: 0;
       transition: color 0.3s ease;
+      font-weight: 500;
+      opacity: 0.8;
     }
 
-    .certificate-item:hover .cert-icon,
     .certificate-item:hover h4,
     .certificate-item:hover p {
       color: var(--contrast-color); /* Text color on hover */
@@ -1522,18 +1563,19 @@
 
 
     .ai-project-card {
-      min-height: 350px;
+      min-height: 180px;
       background-color: var(--background-color);
-      border-radius: 12px;
+      border-radius: 10px;
       box-shadow: 0 6px 15px hsla(210, 20%, 15%, 0.08);
       position: relative;
       overflow: hidden;
-      perspective: 1000px; /* For 3D flip effect */
+      perspective: 1000px;
       cursor: pointer;
+      margin-bottom: 15px;
     }
 
     .ai-project-card .project-icon {
-      font-size: 50px;
+      font-size: 35px;
       color: var(--accent-color);
       position: absolute;
       top: 50%;
@@ -1545,10 +1587,16 @@
     .ai-project-title {
       position: absolute;
       width: 100%;
-      top: 60%;
+      top: 58%;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
+    }
+
+    .ai-project-title h4 {
+      font-size: 15px;
+      margin: 0;
+      padding: 0 12px;
     }
 
     .ai-project-details-overlay {
@@ -1562,42 +1610,65 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 15px;
       opacity: 0;
       transition: all 0.3s ease;
       transform: rotateY(180deg);
       backface-visibility: hidden;
     }
 
-    .ai-project-card:hover .project-icon,
-    .ai-project-card:hover .ai-project-title {
-      opacity: 0;
-    }
-
-    .ai-project-card:hover .ai-project-details-overlay {
-      opacity: 1;
-      transform: rotateY(0);
-    }
-
     .ai-project-details-overlay p {
+      font-size: 12px;
+      line-height: 1.4;
+      margin-bottom: 12px;
       color: var(--contrast-color);
-      margin-bottom: 20px;
       text-align: center;
     }
 
-    .ai-project-links {
-      margin-top: 15px;
+    /* Adjust portfolio grid spacing */
+    .ai-portfolio-section .row {
+      margin-right: -10px;
+      margin-left: -10px;
     }
 
-    .ai-project-links a {
-      color: var(--contrast-color);
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
+    .ai-portfolio-section .col-lg-4,
+    .ai-portfolio-section .col-md-6 {
+      padding-right: 10px;
+      padding-left: 10px;
     }
 
-    .ai-project-links a:hover {
-      text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    /* Make about section rows uniform */
+    .about .row ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .about .row ul li {
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .about .row ul li i {
+      font-size: 16px;
+      margin-right: 8px;
+      color: var(--accent-color);
+      width: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .about .row ul li strong {
+      min-width: 110px;
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    .about .row ul li span,
+    .about .row ul li a {
+      flex: 1;
     }
 
     /*--------------------------------------------------------------
@@ -1917,39 +1988,42 @@
     }
 
     .contact .php-email-form {
-      background-color: var(--background-color); /* Use var for background */
+      background-color: var(--background-color);
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       height: 100%;
-      /* Match height with info-wrap */
+      border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     /* Dark mode for contact form */
     body.dark-mode .contact .php-email-form {
       background-color: var(--surface-color);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.1);
     }
 
     .contact .php-email-form .form-control {
       border-radius: 8px;
-      border: 1px solid var(--surface-color); /* Initial border */
+      border: 1px solid var(--surface-color);
       padding: 12px 15px;
       box-shadow: none;
       transition: all 0.3s ease;
-      background-color: var(--background-color); /* Use background-color var for input */
+      background-color: var(--background-color);
+      font-size: 14px;
     }
 
     .contact .php-email-form .form-control:focus {
       border-color: var(--accent-color);
       box-shadow: 0 0 0 0.25rem hsla(210, 100%, 45%, 0.25);
+      background-color: var(--background-color);
     }
 
     /* Dark mode for form controls */
     body.dark-mode .contact .php-email-form .form-control {
-      background-color: hsl(210, 20%, 20%); /* Darker input fields */
+      background-color: hsl(210, 20%, 20%);
       color: var(--default-color);
-      border-color: hsl(210, 20%, 35%); /* Clearer border in dark mode */
+      border-color: hsl(210, 20%, 35%);
     }
 
     body.dark-mode .contact .php-email-form .form-control::placeholder {
@@ -1963,10 +2037,10 @@
 
     .contact .php-email-form label {
       font-weight: 600;
-      font-size: 15px;
+      font-size: 14px;
       color: var(--heading-color);
       margin-bottom: 8px;
-      /* Added margin */
+      display: block;
     }
 
     .contact .php-email-form button[type="submit"] {
@@ -1980,6 +2054,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
+      font-size: 14px;
     }
 
     .contact .php-email-form button[type="submit"]:hover {
@@ -1990,6 +2065,31 @@
     /* Dark mode for php-email-form loading */
     body.dark-mode .php-email-form .loading {
       background: var(--surface-color);
+    }
+
+    .ai-project-card:hover .project-icon,
+    .ai-project-card:hover .ai-project-title {
+      opacity: 0;
+    }
+
+    .ai-project-card:hover .ai-project-details-overlay {
+      opacity: 1;
+      transform: rotateY(0);
+    }
+
+    .ai-project-links {
+      margin-top: 12px;
+    }
+
+    .ai-project-links a {
+      color: var(--contrast-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .ai-project-links a:hover {
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
     }
   </style>
 </head>
@@ -2109,14 +2209,14 @@
               <div class="col-lg-6">
                 <ul>
                   <li><i class="bi bi-calendar-event"></i> <strong>Experience:&nbsp;</strong> <span>7 Years</span></li>
-                  <li style="margin-right: 2px;"><i class="bi bi-journal-check"></i> <strong>Degree:&nbsp;</strong> <span>M.Sc. CompSci, <br/> M.Sc Big Data</span></li>
+                  <li style="width: 100%;"><i class="bi bi-journal-check"></i> <strong>Degree:&nbsp;</strong> <span>M.Sc. Computer Science & Big Data Analytics</span></li>
                   <li><i class="bi bi-envelope"></i> <strong>Email:&nbsp;</strong> <a href="mailto:csgwava@gmail.com"><span>csgwava@gmail.com</span></a></li>
                   <li><i class="bi bi-briefcase"></i> <strong>Availability:&nbsp;</strong> <span>Open to Projects</span></li>
                 </ul>
               </div>
             </div>
             <p class="py-3">
-              I develop scalable chatbot applications, customize open-source LLMs, and deploy AI solutions using LangChain, Hugging Face, and vector databases. Strong in backend (Java, Python, Docker, FastAPI), I architect powerful, scalable, and business-aligned AI systems. My mission: use Generative AI responsibly for impactful tools.
+              AI Engineer with deep expertise in Generative AI, LLMs, and applied machine learning. Skilled in fine-tuning, Retrieval-Augmented Generation (RAG), scalable chatbot systems, MLOps, and model deployment. I build intelligent solutions that turn complex data into real-world impact—driving innovation across NLP, computer vision, and predictive analytics.
             </p>
           </div>
         </div>
@@ -2131,38 +2231,37 @@
             <div class="swiper-wrapper align-items-center">
               <div class="swiper-slide">
                 <div class="certificate-item" data-certificate-id="cert1">
-                  <i class="fab fa-google-cloud cert-icon"></i>
+                  <i class="fab fa-google cert-icon"></i>
                   <h4>Google Professional ML Engineer</h4>
                   <p>Google Cloud</p>
                 </div>
               </div>
               <div class="swiper-slide">
                 <div class="certificate-item" data-certificate-id="cert2">
-                  <i class="bi bi-diagram-3-fill cert-icon"></i>
+                  <i class="fas fa-building cert-icon"></i>
                   <h4>TOGAF 9 Practitioner</h4>
                   <p>The Open Group</p>
                 </div>
               </div>
               <div class="swiper-slide">
                 <div class="certificate-item" data-certificate-id="cert3">
-                  <i class="bi bi-journal-richtext cert-icon"></i>
+                  <i class="fas fa-tasks cert-icon"></i>
                   <h4>Prince2Agile Practitioner</h4>
                   <p>AXELOS</p>
                 </div>
               </div>
               <div class="swiper-slide">
                 <div class="certificate-item" data-certificate-id="cert4">
-                  <i class="bi bi-calculator-fill cert-icon"></i>
+                  <i class="fas fa-chart-line cert-icon"></i>
                   <h4>Applied Data Science 1</h4>
                   <p>WorldQuant University</p>
                 </div>
               </div>
               <div class="swiper-slide">
                 <div class="certificate-item" data-certificate-id="cert5">
-                  <i class="bi bi-calculator-fill cert-icon"></i>
+                  <i class="fab fa-aws cert-icon"></i>
                   <h4>AWS Certified Solutions Architect</h4>
-                  <p>AWS
-                  </p>
+                  <p>AWS</p>
                 </div>
               </div>
             </div>
