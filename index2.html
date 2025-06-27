@@ -1265,10 +1265,10 @@
 
     .certificate-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(255, 107, 0, 0.18);
-      background: linear-gradient(135deg, var(--secondary-accent-color) 90%, var(--accent-color) 100%);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      background-color: var(--accent-color);
       color: var(--contrast-color);
-      border-color: var(--secondary-accent-color); /* Match border to orange gradient on hover */
+      border-color: var(--accent-color); /* Match border to background on hover */
     }
 
     body.dark-mode .certificate-item:hover {
@@ -1626,15 +1626,12 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, var(--secondary-accent-color) 90%, var(--accent-color) 100%);
-      color: #fff;
+      background-color: var(--accent-color);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 22px 18px;
-      border-radius: 10px;
-      box-shadow: 0 6px 24px rgba(255,107,0,0.10);
+      padding: 15px;
       opacity: 0;
       transition: all 0.3s ease;
       transform: rotateY(180deg);
@@ -1642,13 +1639,11 @@
     }
 
     .ai-project-details-overlay p {
-      font-size: 14px;
-      line-height: 1.5;
-      margin-bottom: 14px;
-      color: #fff;
+      font-size: 12px;
+      line-height: 1.4;
+      margin-bottom: 12px;
+      color: var(--contrast-color);
       text-align: center;
-      font-weight: 500;
-      letter-spacing: 0.01em;
     }
 
     /* Adjust portfolio grid spacing */
@@ -2117,149 +2112,6 @@
     .ai-project-links a:hover {
       text-shadow: 0 0 10px rgba(255,255,255,0.5);
     }
-
-    @media (max-width: 991px) {
-      .about .container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-      }
-      .about .content {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        padding-top: 30px;
-      }
-      .about .row.gy-4 {
-        flex-direction: column;
-        align-items: center;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-      }
-      .about .col-lg-4,
-      .about .col-lg-8 {
-        max-width: 100%;
-        flex: 0 0 100%;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-      }
-      .about .col-lg-4 img {
-        margin: 0 auto 20px auto;
-        display: block;
-        max-width: 100%;
-        width: 100%;
-        height: auto;
-      }
-      .about .content .py-3 {
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 575px) {
-      .about .container {
-        padding-left: 8px !important;
-        padding-right: 8px !important;
-      }
-      .about .content {
-        padding-top: 20px;
-        font-size: 15px;
-      }
-      .about .col-lg-4 img {
-        max-width: 100%;
-        width: 100%;
-        height: auto;
-      }
-      .container {
-        padding-left: 8px !important;
-        padding-right: 8px !important;
-      }
-    }
-
-    // Add after the last responsive CSS block
-    .about-description-card {
-      background: linear-gradient(135deg, var(--surface-color) 85%, var(--accent-color) 100%);
-      border-radius: 18px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
-      padding: 32px 36px 28px 36px;
-      margin: 28px 0 28px 0;
-      text-align: left;
-      font-size: 1.08em;
-      font-weight: 500;
-      color: var(--default-color);
-      border: 1.5px solid hsla(210, 20%, 85%, 0.7);
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s, box-shadow 0.3s, border 0.3s;
-    }
-    .about-description-card::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 6px;
-      background: linear-gradient(to right, var(--accent-color), var(--secondary-accent-color));
-      border-radius: 18px 18px 0 0;
-    }
-    @media (max-width: 991px) {
-      .about-description-card {
-        text-align: center;
-        padding: 22px 12px 18px 12px;
-        font-size: 1em;
-        margin: 18px 0 18px 0;
-      }
-    }
-    @media (max-width: 575px) {
-      .about-description-card {
-        padding: 14px 6px 10px 6px;
-        font-size: 0.98em;
-      }
-    }
-
-    /* Service Card Overlay Hover Effect */
-    .service-item {
-      position: relative;
-      overflow: hidden;
-    }
-    .service-details-hover-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, var(--secondary-accent-color) 90%, var(--accent-color) 100%);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 22px 18px;
-      border-radius: 10px;
-      box-shadow: 0 6px 24px rgba(255,107,0,0.10);
-      opacity: 0;
-      transition: opacity 0.3s;
-      z-index: 2;
-      text-align: center;
-      font-size: 15px;
-      font-weight: 500;
-      pointer-events: none;
-    }
-    .service-item:hover .service-details-hover-overlay {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .service-details-hover-overlay .service-details-text {
-      color: #fff;
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 1.5;
-      letter-spacing: 0.01em;
-    }
-    .service-details-hover-overlay .service-details-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: #fff;
-    }
   </style>
 </head>
 
@@ -2383,9 +2235,9 @@
                 </ul>
               </div>
             </div>
-            <div class="about-description-card">
+            <p class="py-3">
               AI Engineer with deep expertise in Generative AI, LLMs, and applied machine learning. Skilled in fine-tuning, Retrieval-Augmented Generation (RAG), scalable chatbot systems, MLOps, and model deployment. I build intelligent solutions that turn complex data into real-world impact—driving innovation across NLP, computer vision, and predictive analytics.
-            </div>
+            </p>
           </div>
         </div>
 
@@ -2622,44 +2474,6 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Professional Experience</h3>
-            <div class="resume-item">
-              <h4>AI Engineer</h4>
-              <h5>May 2021 - Nov 2024</h5>
-              <p>Econet Wireless Zimbabwe</p>
-              <ul>
-                <li>Designed & deployed AI for telecom operations; improved churn prediction (15% retention).</li>
-                <li>Developed customer segmentation for personalized marketing.</li>
-                <li>Implemented network traffic forecasting (LSTM); 12% uptime improvement.</li>
-                <li>Led fraud anomaly detection (SIM swap, usage patterns); prevented significant losses.</li>
-                <li>Supported NLP chatbot (WhatsApp, African languages); reduced support workload by 30%.</li>
-                <li>Experienced with foundational models; developed hyper-personalization systems for MNOs.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Systems Engineer</h4>
-              <h5>Jun 2019 - Apr 2021</h5>
-              <p>Econet Wireless Zimbabwe</p>
-              <ul>
-                <li>Aligned tech with business strategy; supported revenue/customer growth.</li>
-                <li>Led planning & implementation of scalable telecom systems.</li>
-                <li>Designed system topologies & capacity plans.</li>
-                <li>Spearheaded disaster recovery for IN/Billing/VAS systems.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Graduate Systems Engineer</h4>
-              <h5>Jun 2018 - May 2019</h5>
-              <p>Econet Wireless Zimbabwe</p>
-              <ul>
-                <li>Supported enterprise system design & maintenance.</li>
-                <li>Automated deployment with Bash/Python.</li>
-                <li>Monitored networks, contributed to security updates.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <h3 class="resume-title">Summary</h3>
             <div class="resume-item pb-0">
               <h4>Clayton Gwava</h4>
@@ -2686,8 +2500,8 @@
 
             <div class="resume-item">
               <h4>M.Sc. Big Data Analytics</h4>
-              <h5>January 2021 - October 2022</h5>
-              <p>Chinhoyi University of Technology, Zimbabwe</p>
+              <h5>Jan 2021 - Jun 2022</h5>
+              <p>Maharishi International University, USA</p>
               <ul>
                 <li>Advanced Analytics and Statistical Methods</li>
                 <li>Machine Learning and AI Applications</li>
@@ -2705,6 +2519,31 @@
                 <li>Data analysis, visualization, ML application.</li>
               </ul>
             </div>
+            <!-- <div class="resume-item">
+              <h4>Project Management</h4>
+              <h5>2019 - 2020</h5>
+              <p>University of Zimbabwe</p>
+              <ul>
+                <li>Project planning, execution, monitoring.</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>IT Admin & Mgmt</h4>
+              <h5>2017 - 2018</h5>
+              <p>Cisco Networking Academy</p>
+              <ul>
+                <li>Network admin, IT infrastructure, system management.</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>Scientific Computing & Python for Data Science</h4>
+              <h5>2020</h5>
+              <p>WorldQuant University</p>
+              <ul>
+                <li>Python for data manipulation, analysis, visualization.</li>
+              </ul>
+            </div> -->
+
             <h3 class="resume-title">Certifications</h3>
             <div class="resume-item">
               <ul>
@@ -2715,6 +2554,62 @@
                 <li>Applied Data Science 1</li>
               </ul>
             </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="resume-title">Professional Experience</h3>
+            <div class="resume-item">
+              <h4>AI Engineer</h4>
+              <h5>May 2021 - Nov 2024</h5>
+              <p>Econet Wireless Zimbabwe</p>
+              <ul>
+                <li>Designed & deployed AI for telecom operations; improved churn prediction (15% retention).</li>
+                <li>Developed customer segmentation for personalized marketing.</li>
+                <li>Implemented network traffic forecasting (LSTM); 12% uptime improvement.</li>
+                <li>Led fraud anomaly detection (SIM swap, usage patterns); prevented significant losses.</li>
+                <li>Supported NLP chatbot (WhatsApp, African languages); reduced support workload by 30%.</li>
+                <li>Experienced with foundational models; developed hyper-personalization systems for MNOs.</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>Systems Engineer</h4>
+              <h5>Jun 2019 - Apr 2021</h5>
+              <p>Econet Wireless Zimbabwe</p>
+              <ul>
+                <li>Aligned tech with business strategy; supported revenue/customer growth.</li>
+                <li>Led planning & implementation of scalable telecom systems.</li>
+                <li>Designed system topologies & capacity plans.</li>
+                <li>Spearheaded disaster recovery for IN/Billing/VAS systems.</li>
+              </ul>
+            </div>
+            <!-- <div class="resume-item">
+              <h4>Intern</h4>
+              <h5>Feb 2020 - Jun 2020</h5>
+              <p>Harsh Analytic, India</p>
+              <ul>
+                <li>Performed data analytics (Python, Tableau, Google Analytics).</li>
+                <li>Solved real-time problems with ML/AI.</li>
+              </ul>
+            </div> -->
+            <div class="resume-item">
+              <h4>Graduate Systems Engineer</h4>
+              <h5>Jun 2018 - May 2019</h5>
+              <p>Econet Wireless Zimbabwe</p>
+              <ul>
+                <li>Supported enterprise system design & maintenance.</li>
+                <li>Automated deployment with Bash/Python.</li>
+                <li>Monitored networks, contributed to security updates.</li>
+              </ul>
+            </div>
+            <!-- <div class="resume-item">
+              <h4>Automation Engineer</h4>
+              <h5>Jun 2017 - Apr 2018</h5>
+              <p>ERG Africa, DRC</p>
+              <ul>
+                <li>PLC programming and maintenance.</li>
+                <li>Rectifiers maintenance.</li>
+              </ul>
+            </div> -->
           </div>
         </div>
       </div>
@@ -2732,10 +2627,6 @@
                 <h4 class="title"><a href="#" class="stretched-link" data-service-title="Generative AI & LLM Development" data-service-details="Building and deploying custom LLM-powered systems, including fine-tuning, RAG, and scalable chatbot applications with multilingual support. This involves architecting solutions that leverage the latest advancements in natural language processing and generative models to create intelligent and dynamic conversational agents and content generation tools.">AI & LLM Dev</a></h4>
                 <p class="description">Custom LLM systems, fine-tuning, RAG, scalable multilingual chatbots.</p>
               </div>
-              <div class="service-details-hover-overlay">
-                <div class="service-details-title">Generative AI & LLM Development</div>
-                <div class="service-details-text">Building and deploying custom LLM-powered systems, including fine-tuning, RAG, and scalable chatbot applications with multilingual support. This involves architecting solutions that leverage the latest advancements in natural language processing and generative models to create intelligent and dynamic conversational agents and content generation tools.</div>
-              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
@@ -2743,10 +2634,6 @@
               <div>
                 <h4 class="title"><a href="#" class="stretched-link" data-service-title="Machine Learning & Deep Learning" data-service-details="Designing and implementing advanced ML/DL models for predictive analytics, computer vision, and NLP, including recommendation systems for hyper-personalization. My approach focuses on building robust, high-performance models that extract valuable insights from complex data and automate decision-making processes.">ML & Deep Learning</a></h4>
                 <p class="description">Predictive analytics, computer vision, NLP, hyper-personalization.</p>
-              </div>
-              <div class="service-details-hover-overlay">
-                <div class="service-details-title">Machine Learning & Deep Learning</div>
-                <div class="service-details-text">Designing and implementing advanced ML/DL models for predictive analytics, computer vision, and NLP, including recommendation systems for hyper-personalization. My approach focuses on building robust, high-performance models that extract valuable insights from complex data and automate decision-making processes.</div>
               </div>
             </div>
           </div>
@@ -2756,10 +2643,6 @@
                 <h4 class="title"><a href="#" class="stretched-link" data-service-title="Data Science & Analytics" data-service-details="Extracting insights from complex datasets, performing statistical analysis, and creating data-driven strategies. I specialize in transforming raw data into actionable intelligence, building compelling dashboards, and identifying key trends that inform business decisions.">Data Science & Analytics</a></h4>
                 <p class="description">Insights from complex data, statistical analysis, data-driven strategies.</p>
               </div>
-              <div class="service-details-hover-overlay">
-                <div class="service-details-title">Data Science & Analytics</div>
-                <div class="service-details-text">Extracting insights from complex datasets, performing statistical analysis, and creating data-driven strategies. I specialize in transforming raw data into actionable intelligence, building compelling dashboards, and identifying key trends that inform business decisions.</div>
-              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
@@ -2767,10 +2650,6 @@
               <div>
                 <h4 class="title"><a href="#" class="stretched-link" data-service-title="AI Strategy & Consulting" data-service-details="Guiding businesses on AI adoption, identifying opportunities, and developing roadmaps for AI integration, leveraging experience with foundational models. I help organizations navigate the AI landscape, from initial concept to full-scale implementation, ensuring a strategic and impactful approach.">AI Strategy & Consulting</a></h4>
                 <p class="description">Guidance on AI adoption, opportunity identification, roadmap development.</p>
-              </div>
-              <div class="service-details-hover-overlay">
-                <div class="service-details-title">AI Strategy & Consulting</div>
-                <div class="service-details-text">Guiding businesses on AI adoption, identifying opportunities, and developing roadmaps for AI integration, leveraging experience with foundational models. I help organizations navigate the AI landscape, from initial concept to full-scale implementation, ensuring a strategic and impactful approach.</div>
               </div>
             </div>
           </div>
@@ -2780,10 +2659,6 @@
                 <h4 class="title"><a href="#" class="stretched-link" data-service-title="Ethical AI & Responsible Deployment" data-service-details="Ensuring fairness, transparency, and accountability in AI systems, and implementing bias detection and mitigation techniques. My focus is on building AI solutions that are not only powerful but also responsible, addressing ethical considerations from design to deployment.">Ethical AI & Deployment</a></h4>
                 <p class="description">Ensuring fairness, transparency, accountability; bias detection/mitigation.</p>
               </div>
-              <div class="service-details-hover-overlay">
-                <div class="service-details-title">Ethical AI & Responsible Deployment</div>
-                <div class="service-details-text">Ensuring fairness, transparency, and accountability in AI systems, and implementing bias detection and mitigation techniques. My focus is on building AI solutions that are not only powerful but also responsible, addressing ethical considerations from design to deployment.</div>
-              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
@@ -2791,10 +2666,6 @@
               <div>
                 <h4 class="title"><a href="#" class="stretched-link" data-service-title="Cloud AI Integration & MLOps" data-service-details="Leveraging cloud platforms (AWS, Azure, GCP) for scalable AI model deployment, infrastructure, and MLOps pipelines. I facilitate seamless integration of AI models into existing cloud environments, ensuring efficient development, deployment, and monitoring of machine learning workflows.">Cloud AI & MLOps</a></h4>
                 <p class="description">Scalable AI model deployment, infrastructure, MLOps pipelines.</p>
-              </div>
-              <div class="service-details-hover-overlay">
-                <div class="service-details-title">Cloud AI Integration & MLOps</div>
-                <div class="service-details-text">Leveraging cloud platforms (AWS, Azure, GCP) for scalable AI model deployment, infrastructure, and MLOps pipelines. I facilitate seamless integration of AI models into existing cloud environments, ensuring efficient development, deployment, and monitoring of machine learning workflows.</div>
               </div>
             </div>
           </div>
