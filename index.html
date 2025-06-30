@@ -1510,10 +1510,17 @@
       max-width: 1200px;
     }
 
-    @media (min-width: 768px) {
+    @media (max-width: 991px) {
       .ai-container {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .ai-container {
+        padding-left: 6px;
+        padding-right: 6px;
       }
     }
 
@@ -2941,33 +2948,74 @@
           </div>
 
           <div class="col-lg-7">
-           <form action="https://formspree.io/f/xgvyoapn" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-  <div class="row gy-4">
-    <div class="col-md-6">
-      <label for="name-field" class="pb-2">Your Name</label>
-      <input type="text" name="name" id="name-field" class="form-control" required>
-    </div>
-    <div class="col-md-6">
-      <label for="email-field" class="pb-2">Your Email</label>
-      <input type="email" class="form-control" name="email" id="email-field" required>
-    </div>
-    <div class="col-md-12">
-      <label for="subject-field" class="pb-2">Subject</label>
-      <input type="text" class="form-control" name="subject" id="subject-field" required>
-    </div>
-    <div class="col-md-12">
-      <label for="message-field" class="pb-2">Message</label>
-      <textarea class="form-control" name="message" rows="10" id="message-field" required></textarea>
-    </div>
-    <div class="col-md-12 text-center">
-      <div class="loading">Loading</div>
-      <div class="error-message"></div>
-      <div class="sent-message">Your message has been sent. Thank you!</div>
-      <button type="submit">Send Message</button>
-    </div>
-  </div>
-</form>
-
+            <form id="contact-form" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <input type="hidden" name="_subject" value="New message from Clayton Gwava's website contact form">
+                  <label for="name-field" class="pb-2">Your Name</label>
+                  <input type="text" name="name" id="name-field" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="email-field" class="pb-2">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email-field" required>
+                </div>
+                <div class="col-md-12">
+                  <label for="subject-field" class="pb-2">Subject</label>
+                  <input type="text" class="form-control" name="subject" id="subject-field" required>
+                </div>
+                <div class="col-md-12">
+                  <label for="message-field" class="pb-2">Message</label>
+                  <textarea class="form-control" name="message" rows="10" id="message-field" required></textarea>
+                </div>
+                <div class="col-md-12 text-center">
+                  <div class="loading" style="display: none;">Loading...</div>
+                  <div class="error-message" style="display: none; color: red;"></div>
+                  <div class="sent-message" style="display: none; color: green;">Your message has been sent. Thank you!</div>
+                  <button type="submit">Send Message</button>
+                </div>
+              </div>
+            </form>
+            
+            <script>
+              const form = document.getElementById("contact-form");
+              const loading = document.querySelector(".loading");
+              const errorMsg = document.querySelector(".error-message");
+              const successMsg = document.querySelector(".sent-message");
+            
+              form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                loading.style.display = "block";
+                errorMsg.style.display = "none";
+                successMsg.style.display = "none";
+            
+                const formData = new FormData(form);
+            
+                fetch("https://formspree.io/f/manjvjdp", {
+                  method: "POST",
+                  headers: {
+                    'Accept': 'application/json'
+                  },
+                  body: formData
+                })
+                .then(response => {
+                  loading.style.display = "none";
+                  if (response.ok) {
+                    successMsg.style.display = "block";
+                    form.reset();
+                  } else {
+                    return response.json().then(data => {
+                      throw new Error(data.errors?.[0]?.message || "There was an error sending the message.");
+                    });
+                  }
+                })
+                .catch(error => {
+                  loading.style.display = "none";
+                  errorMsg.innerText = error.message;
+                  errorMsg.style.display = "block";
+                });
+              });
+            </script>
+            
           </div>
         </div>
       </div>
